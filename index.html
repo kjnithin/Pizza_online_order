@@ -1,16 +1,87 @@
+<!--<?
+//define the variables and set to empty values
+$firstErr= $lastErr= $cityErr= $telephoneErr= $emailErr= $postalErr= "";
+$first= $last= $city= $telephone= $email= $postal= "";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+   if (empty($_POST['first'])) {
+     $firstErr = "Name is required";
+   } else {
+     $first = test_input($_POST['first']);
+
+// check if name only contains letters and whitespace
+     if (!preg_match("/^[a-zA-Z ]*$/",$first)) {
+       $firstErr = "Only letters and white space allowed"; 
+     }
+}
+
+
+   if (empty($_POST['last'])) {
+     $lastErr = "Name is required";
+   } else {
+     $last = test_input($_POST['last']);
+// check if name only contains letters and whitespace
+     if (!preg_match("/^[a-zA-Z ]*$/",$last)) {
+       $lastErr = "Only letters and white space allowed"; 
+     }
+}
+
+if (empty($_POST['city'])) {
+     $cityErr = "city is required";
+   } else {
+     $city = test_input($_POST['city']);
+}
+
+if (empty($_POST['email'])) {
+     $emailErr = "Email is required";
+   } else {
+     $email = test_input($_POST['email']);
+     // check if e-mail address is well-formed
+     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+       $emailErr = "Invalid email format"; 
+     }
+   }
+}
+
+
+?>-->
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    
 </head>
     <body>
-        <form id="pd">
+        <header><h1>Conestoga Pizzeria</h1></header>
+        <div class="order">
+        <form method="post" action=" ">
+            <h3>Personal Details</h3>
             First Name<br>
-            <input type="text" name="First name" placeholder="First Name"><br><br>
-            <input type="text" name="Last name" placeholder="Last Name"><br><br>
-            <textarea rows="4" cols="21" name="address" placeholder="Address"></textarea><br><br>
-            <input type="text" name="city" placeholder="City" required><br><br>
+            <input type="text" name="first">
+            <span class="error">* <?php echo $firstErr;?></span><br><br>
+            Last Name<br>
+            <input type="text" name="last">
+            <span class="error">* <?php echo $lastErr;?></span><br><br>
+            Apt No.<br>
+            <input type="text" name="apt"><br><br>
+            Street<br>
+            <input type="text" name="street"><br><br>
+            City<br>
+            <input type="text" name="city">
+            <span class="error">* <?php echo $cityErr;?></span><br><br>
+            Province<br>
             <select required>
                 <option value="">None</option>
                 <option value="ontario">Ontario</option>
@@ -18,10 +89,57 @@
                 <option value="manitoba">Manitoba</option>
                 <option value="saskatchewan">Saskatchewan</option>
             </select><br><br>
-            <input type="tel" name="telephone" placeholder="Telephone"><br><br>
-            <input type="email" name="email" placeholder="email"><br><br>
+            Postal Code<br>
+            <input type="text" name="postal"><br><br>
+            Telephone<br>
+            <input type="tel" name="telephone"><br><br>
+            Email<br>
+            <input type="email" name="email"><br><br>
+            </div>
             
-        
+            <div class="order">
+            <h3>Order Information</h3>
+            
+            <strong>Select the pizza size:</strong><br>
+            <input type="radio" value="small" name="size" checked>Small<br>
+            <input type="radio" value="medium" name="size">Medium<br>
+            <input type="radio" value="large" name="size">Large<br>
+            <input type="radio" value="xl" name="size">X-L<br><br>
+            
+            
+            <strong>Select the crust type:</strong><br>
+            <select name="crust" id="crust" size="1">
+                <option value="hand-tossed">Hand-Tossed</option> 
+                <option value="pan">Pan</option> 
+                <option value="stuffed">Stuffed</option> 
+                 <option value="thin">Thin</option>
+            </select><br><br>
+            
+            <strong>Select your Cheese:</strong><br>
+            <input type="radio" value="Mazzarella" name="cheese" checked>Mazzarella<br>
+            <input type="radio" value="provolone" name="cheese">Provolone<br>
+            <input type="radio" value="Parmesan" name="cheese">Parmesan<br><br>
+            
+            <strong>Select the Toppings:</strong><br> 
+            <b>Veggies</b><br>
+            <input type="checkbox" name="toppings" value="Green" />Green Pepper<br> 
+            <input type="checkbox" name="toppings"  value="Pinaple"/>Pinaple<br> 
+           <input type="checkbox"  name="toppings" value="olives" />Olives<br> 
+            <input type="checkbox" name="toppings" value="Mushrooms"  />Mushrooms<br> 
+            <input type="checkbox" name="toppings" value="hot"/>Hot banana Peppers<br>
+            <b>Meats</b><br>
+            <input type="checkbox" name="toppings" value="pepperoni"/>Pepperoni<br> 
+            <input type="checkbox" name="toppings" value="bacon" />Bacon crumbles<br> 
+            <input type="checkbox" name="toppings" value="sausages" />Spicy Italian Sausages<br> 
+            <input type="checkbox" name="toppings" value="chicken" />Chipotle Chicken<br> 
+            <input type="checkbox" name="toppings" value="salami"  />Salami<br><br> 
+            
+            </div>
+            
+           <input type="submit" name="submit" value="Order">
+            
         </form>
+        
+       
     </body>
 </html>
