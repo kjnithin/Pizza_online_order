@@ -63,9 +63,10 @@ if (empty($_POST['email'])) {
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
     
 </head>
-    <body>
-        <header><h1>Conestoga Pizzeria</h1></header>
-        <div class="order">
+    <body class="body">
+        <header class="titleheader"><h1>Conestoga Pizzeria</h1></header>
+      
+            <section class="rightside">
         <form method="post" action=" ">
             
             <h3>Personal Details</h3>
@@ -105,10 +106,12 @@ if (empty($_POST['email'])) {
             
             Email<br>
             <input type="email" name="email"><br><br>
-            </div>
+            </section>
+
             
-            <div class="order">
-            <h3>Order Information</h3>
+            
+            <aside class="ass">
+            <h3>Order Information </h3>
             
             <strong>Select the pizza size:</strong><br>
             <input type="radio" value="small" name="size" checked>Small<br>
@@ -143,10 +146,12 @@ if (empty($_POST['email'])) {
             <input type="checkbox" name="toppings" value="sausages" />Spicy Italian Sausages<br> 
             <input type="checkbox" name="toppings" value="chicken" />Chipotle Chicken<br> 
             <input type="checkbox" name="toppings" value="salami"  />Salami<br><br> 
+                </aside>
             
-            </div>
-            
+
+            <footer class="foot">
            <input type="submit" name="submit" value="Order">
+                </footer>
             
         </form>
         
