@@ -7,17 +7,66 @@
     margin: 0;
     padding: 0;
 }
+
+h3
+{
+    width: 200px;
+}
 body{
-    width: 60%;
+    
+    width: 50%;
     height:auto;
-    background-color: antiquewhite;
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    
     margin:15px auto;
     border: 1px solid black;
+    text-align: left;
+}
+
+.body{
+    margin: 0 auto;
+    width: 40%;
+  color: aliceblue;
+    height:auto;
+    clear: both;
+}
+
+.titleheader{
+    align-content: center;
+    padding: 2%;
+    text-align: center;
+    
     
 }
-header{
-    text-align:center;
-    padding:5px;
+
+.rightside{
+   width: 40%;
+    float:left;
+    padding:0% 5%;
+     
+}
+
+.ass{
+    /*width: 40%;*/
+    float:right;
+   /* padding:0% 5%;*/
+    
+}
+
+@media only screen and (mibn-width) and (max-width:600px){
+  .body{
+      width:90%;
+     
+  }
+}
+.foot{
+    width: 50%;
+    clear: both;
+    padding-left: 50%;
+    padding-bottom: .5%;
+  
+
 }
 
 /*section{
@@ -36,7 +85,7 @@ footer{
     clear:both;
 }*/
 
-.order{
+/*.order{
     float: left;
     margin: 5px;
     padding: 15px;
