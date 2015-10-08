@@ -60,27 +60,34 @@ if (empty($_POST['email'])) {
 <html>
 <head>
    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
     
 </head>
     <body>
         <header><h1>Conestoga Pizzeria</h1></header>
         <div class="order">
         <form method="post" action=" ">
+            
             <h3>Personal Details</h3>
+            
             First Name<br>
             <input type="text" name="first">
             <span class="error">* <?php echo $firstErr;?></span><br><br>
+           
             Last Name<br>
             <input type="text" name="last">
             <span class="error">* <?php echo $lastErr;?></span><br><br>
+           
             Apt No.<br>
             <input type="text" name="apt"><br><br>
+            
             Street<br>
             <input type="text" name="street"><br><br>
+            
             City<br>
             <input type="text" name="city">
             <span class="error">* <?php echo $cityErr;?></span><br><br>
+           
             Province<br>
             <select required>
                 <option value="">None</option>
@@ -89,10 +96,13 @@ if (empty($_POST['email'])) {
                 <option value="manitoba">Manitoba</option>
                 <option value="saskatchewan">Saskatchewan</option>
             </select><br><br>
+           
             Postal Code<br>
             <input type="text" name="postal"><br><br>
+            
             Telephone<br>
             <input type="tel" name="telephone"><br><br>
+            
             Email<br>
             <input type="email" name="email"><br><br>
             </div>
