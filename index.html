@@ -60,14 +60,14 @@ if (empty($_POST['email'])) {
 <html>
 <head>
    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="./css/stylesheet.css">
     
 </head>
     <body class="body">
         <header class="titleheader"><h1>Conestoga Pizzeria</h1></header>
-      
+      <form method="post" action=" ">
             <section class="rightside">
-        <form method="post" action=" ">
+        
             <h3>Personal Details</h3>
             First Name<br>
             <input type="text" name="first">
@@ -100,7 +100,7 @@ if (empty($_POST['email'])) {
 
             
             
-            <aside class="ass">
+            <section class="ass">
             <h3>Order Information </h3>
             
             <strong>Select the pizza size:</strong><br>
@@ -136,13 +136,13 @@ if (empty($_POST['email'])) {
             <input type="checkbox" name="toppings" value="sausages" />Spicy Italian Sausages<br> 
             <input type="checkbox" name="toppings" value="chicken" />Chipotle Chicken<br> 
             <input type="checkbox" name="toppings" value="salami"  />Salami<br><br> 
-                </aside>
+                </section>
             
 
             <footer class="foot">
            <input type="submit" name="submit" value="Order">
                 </footer>
-            
+
         </form>
         
        

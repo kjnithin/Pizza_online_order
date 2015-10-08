@@ -7,6 +7,11 @@
     margin: 0;
     padding: 0;
 }
+
+h3
+{
+    width: 200px;
+}
 body{
     
     width: 50%;
@@ -36,16 +41,16 @@ body{
 }
 
 .rightside{
-    width: 40%;
+   width: 40%;
     float:left;
     padding:0% 5%;
      
 }
 
 .ass{
-    width: 40%;
+    /*width: 40%;*/
     float:right;
-    padding:0% 5%;
+   /* padding:0% 5%;*/
     
 }
 
