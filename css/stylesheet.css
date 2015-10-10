@@ -1,6 +1,6 @@
-//To make the error as red color
+/*To make the error as red color*/
 .error {
-    color: #FF0000;
+    color:crimson;
 }
 
 *{
@@ -16,7 +16,7 @@ body{
     
     width: 50%;
     height:auto;
-    background-image: url(../images/background.jpg);
+   /* background-image: url(../images/background.jpg);*/
     background-size: cover;
     
     margin:15px auto;
@@ -27,7 +27,7 @@ body{
 .body{
     margin: 0 auto;
     width: 40%;
-  color: aliceblue;
+ /* color: aliceblue;*/
     height:auto;
     clear: both;
 }
@@ -47,7 +47,7 @@ body{
      
 }
 
-.ass{
+.leftside{
     /*width: 40%;*/
     float:right;
    /* padding:0% 5%;*/
@@ -69,27 +69,5 @@ body{
 
 }
 
-/*section{
-    width:50%;
-    height:auto;
-    float: left;
-}
 
-aside{
-    width: 50%;
-    height: auto;
-    float: left;
-}
-
-footer{
-    clear:both;
-}*/
-
-/*.order{
-    float: left;
-    margin: 5px;
-    padding: 15px;
-    width: 300px;
-    height: auto;
-   /* border: 1px solid black;*/
 }
