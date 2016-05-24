@@ -1,6 +1,6 @@
 <!--Registration-->
 <form onsubmit="postRegister();return false;" class="form-horizontal">
-  <div class="well col-md-offset-3">
+  <div class="well col-md-offset-4">
    <div class="col-md-offset-0"> <h1>Conestoga Pizzeria</h1></div>
    <div class="form-group" id="regNameGroup">
      <label for="fullName" class="control-label required">Full Name</label>
@@ -64,7 +64,7 @@
       </div>
       <div class="col-xs-6" id="regphonegroup">
         <label for="telephone" class="required">Telephone</label>
-        <span class="fa fa-phone" id="regphone"></span>
+        <span class="fa fa-whatsapp" id="regphone"></span>
         <input class="form-control" id="regTel" type="text" required>
       </div>
     </div>

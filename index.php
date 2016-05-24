@@ -11,21 +11,21 @@
             <title>Conestoga Pizzeria</title>
         </head>
         <body>
-          <div class="container">
-          <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-              <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                  <img alt="Brand" src="img/favicon.ico">
-                </a>
-              </div>
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                  <li><a href="#">Conestoga Pizza</a></li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+          <div class="container-fluid">
+   <nav class="navbar navbar-default navbar-fixed-top">
+     <div class="container">
+       <div class="navbar-header">
+         <a class="navbar-brand" onclick="homePage();" style='padding-right:5px !important;'><img alt="OSDT" src="./img/pizza.ico" height="25px"></a>
+         <text class='navbar-header-text'>CONESTOGA PIZZA</text>
+       </div>
+       <div class="collapse navbar-collapse" id="">
+         <ul class="nav navbar-nav navbar-right">
+          <li><a id="btnLogin"><i class="fa fa-sign-in fa-fw fa-2x"></i></a></li>
+         </ul>
+       </div>
+     </div>
+   </nav>
+ </div>
          <!-- end -->
 
          <div id='mainView' class='container'>
@@ -35,7 +35,7 @@
 
 
          <!-- Its footer -->
-          <nav class="navbar navbar-default navbar-fixed-bottom">
+         <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container">
               <div class="navbar-header" id="copyright">
               <p>  <span class="glyphicon glyphicon-copyright-mark"></span>

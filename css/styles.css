@@ -7,6 +7,8 @@
   /*color:white;*/
 }
 
+
+
 /* Open Sans - 300, 400, 700, 800 -- latin */
 
 /*@font-face {
@@ -883,7 +885,7 @@ table.dataTable thead .sorting_desc {
 
  /*This is to add the padding for the main view*/
  #mainView{
-   margin:100px 0px;
+   margin:150px 0px ;
  }
  /*end*/
 

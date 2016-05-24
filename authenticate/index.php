@@ -2,15 +2,17 @@
 error_reporting(0);
 session_start();
 include('../config/connect.php');
+$pdo = Database::connect();
 
 $_GET['loginUser'] ? $loginUser = $_id['loginUser'] : $loginUser = $_POST['loginUser'];
 $_GET['loginPassword'] ? $loginPassword = $_id['loginPassword'] : $loginPassword = $_POST['loginPassword'];
 
-$query= "SELECT * From user where username='".$loginUser."' and password='".$loginPassword."'";
-$result=mysql_query($query);
-$row = mysql_fetch_array($result);
+$query= $pdo->prepare("SELECT * From user where username=?");
+$query->execute(array($loginUser));
+$row=$query->fetch(PDO::FETCH_ASSOC);
 
-// echo $row['userRole'];
+//This is to verify the password that is hashed in the registration and the login password, If both matches it do the required operation
+if(password_verify($loginPassword,$row['password'])){
 switch($row['userRole']){
    case "admin":
      $row['template'] = 'admin.php';
@@ -22,10 +24,12 @@ switch($row['userRole']){
      $row['template'] = 'unauthorisedUser.php';
      break;
    }
+}
+else{
+  $row['template'] = 'unauthorisedUser.php';
+}
 session_destroy();
- // Result
 
- echo json_encode($row);
-
-
+echo json_encode($row);
+Database::disconnect();
 ?>

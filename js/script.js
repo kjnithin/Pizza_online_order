@@ -11,40 +11,65 @@ function login(){
     data: "",
     success: function(data) {
       $("#mainView").html(data);
-      $("#eyeLabel").mousedown(function(){
-        $("#loginPassword").attr('type','text');
-      }).mouseup(function(){
-        $("#loginPassword").attr('type','password');
-      }).mouseout(function(){
-        $("#loginPassword").attr('type','password');
-      });
-
-      $("#loadRegistrationForm").on('click',function(){
-        $.ajax({
-          type:"POST",
-          url:"template/register.php",
-          data:"",
-          success:function(data){
-            $("#mainView").html(data);
-            $("#regeye").mousedown(function(){
-              $("#regPassword").attr('type','text');
-            }).mouseup(function(){
-              $("#regPassword").attr('type','password');
-            }).mouseout(function(){
-              $("#regPassword").attr('type','password');
-            });
-           }
-        });
-      });
+      $("#btnLogin").hide();
+      $("#loginSpinner").hide();
+      loginPassowrdEye();
+      loginSpinnerShow();
+      loadRegistrationPage();
     }
   });
 }
 
+// Load Registration page
+function loadRegistrationPage(){
+  $("#loadRegistrationForm").on('click',function(){
+    $.ajax({
+      type:"POST",
+      url:"template/register.php",
+      data:"",
+      success:function(data){
+        $("#mainView").html(data);
+        $("#btnLogin").show();
+        regPasswordEye();
+        loginBtn();
+       }
+    });
+  });
+}
+//Button to navigate to Login page from navbar of the registration page
+function loginBtn(){
+  $("#btnLogin").on('click',function(){
+    login();
+  });
+}
 
+//See the password while entering it in the Registration page
+function regPasswordEye(){
+  $("#regeye").mousedown(function(){
+    $("#regPassword").attr('type','text');
+  }).mouseup(function(){
+    $("#regPassword").attr('type','password');
+  }).mouseout(function(){
+    $("#regPassword").attr('type','password');
+  });
+}
 
-
-
-
+//Spinner in the submit button of the login form
+function loginSpinnerShow(){
+  $("#loginSubmit").on('Click',function(){
+    $("#loginSpinner").show();
+  });
+}
+// See the password while entering it in the Login form
+function loginPassowrdEye(){
+  $("#eyeLabel").mousedown(function(){
+    $("#loginPassword").attr('type','text');
+  }).mouseup(function(){
+    $("#loginPassword").attr('type','password');
+  }).mouseout(function(){
+    $("#loginPassword").attr('type','password');
+  });
+}
 // This is for authentication of login
 var postLogin=function(){
   var loginUser=document.getElementById('loginUser').value;
@@ -104,8 +129,7 @@ function loadView(obj) {
               success:function(data,status){
               if(status=="success"){
                 login();
-                $('#loginAlert').show();
-                console.log("hi");
+
               }
               else{
 
