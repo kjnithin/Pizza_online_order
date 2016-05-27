@@ -12,37 +12,35 @@
         </head>
         <body>
           <div class="container-fluid">
-   <nav class="navbar navbar-default navbar-fixed-top">
-     <div class="container">
-       <div class="navbar-header">
-         <a class="navbar-brand" onclick="homePage();" style='padding-right:5px !important;'><img alt="OSDT" src="./img/pizza.ico" height="25px"></a>
-         <text class='navbar-header-text'>CONESTOGA PIZZA</text>
-       </div>
-       <div class="collapse navbar-collapse" id="">
-         <ul class="nav navbar-nav navbar-right">
-          <li><a id="btnLogin"><i class="fa fa-sign-in fa-fw fa-2x"></i></a></li>
-         </ul>
-       </div>
-     </div>
-   </nav>
- </div>
-         <!-- end -->
-
-         <div id='mainView' class='container'>
-         </div>
-
-
-
-
-         <!-- Its footer -->
-         <nav class="navbar navbar-default navbar-fixed-bottom">
-            <div class="container">
-              <div class="navbar-header" id="copyright">
-              <p>  <span class="glyphicon glyphicon-copyright-mark"></span>
-                Conestoga Pizza</P>
+            <nav class="navbar navbar-default navbar-fixed-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <a class="navbar-brand" style='padding-right:5px !important;'><img alt="PIZZA" src="./img/pizza.ico" height="25px"></a>
+                  <text class='navbar-header-text'>CONESTOGA PIZZA</text>
+                </div>
+                <p class="navbar-text" id="displayName">Hi!! <font class='bold' id="userName"></font></p>
+                <div class="collapse navbar-collapse" id="">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a id="btnLogin"><i class="fa fa-sign-in fa-fw fa-2x"></i></a></li>
+                  <li><a id="btnLogout"><i class="fa fa-sign-out fa-fw fa-2x"></i></a></li>
+                </ul>
               </div>
             </div>
-          </nav>
-        </div>
-        </body>
+            </nav>
+          </div>
+          <!-- end -->
+
+         <div  class='container'  id='mainView' ></div>
+
+         <!-- Its footer -->
+         <div class="container-fluid">
+         <nav class="navbar navbar-default navbar-fixed-bottom">
+           <div class="container">
+             <div class="navbar-header" id="copyright">
+               <p><span class="glyphicon glyphicon-copyright-mark"></span>Conestoga Pizza</P>
+               </div>
+             </div>
+           </nav>
+         </div>
+       </body>
   </html>

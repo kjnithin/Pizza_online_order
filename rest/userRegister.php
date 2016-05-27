@@ -18,9 +18,9 @@ $_GET['regtel'] ? $regtel = $_id['regtel'] : $regtel = $_POST['regtel'];
 $hash=password_hash($regpassword,PASSWORD_DEFAULT);
 $query=$pdo->prepare("INSERT INTO user(name,username,email,password,apt,street,city,province,postal,phone,userRole)
               VALUES(?,?,?,?,?,?,?,?,?,?,?)");
-$query->execute(array($regname,$regusername,$regemail,$hash,$regapt,$regstreet,$regcity,$regprovince,$regpostal,$regpostal,'user'));
+$query->execute(array($regname,$regusername,$regemail,$hash,$regapt,$regstreet,$regcity,$regprovince,$regpostal,$regtel,'user'));
 $row=$query->fetch(PDO::FETCH_ASSOC);
-print_r($row);
+
 echo json_encode($row);
 Database::disconnect();
 ?>

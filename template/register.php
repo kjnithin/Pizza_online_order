@@ -1,6 +1,6 @@
 <!--Registration-->
 <form onsubmit="postRegister();return false;" class="form-horizontal">
-  <div class="well col-md-offset-4">
+  <div class="well col-md-offset-3" id="registerWell">
    <div class="col-md-offset-0"> <h1>Conestoga Pizzeria</h1></div>
    <div class="form-group" id="regNameGroup">
      <label for="fullName" class="control-label required">Full Name</label>
@@ -48,10 +48,6 @@
     <label for="inputProvince" class="control-label required">Province</label>
   <select class="form-control" id="regProvince" required>
     <option value="">None</option>
-    <option value="Ontario">Ontario</option>
-    <option value="Quebec">Quebec</option>
-    <option value="Manitoba">Manitoba</option>
-    <option value="Saskatchewan">Saskatchewan</option>
   </select>
 </div>
 <div class="form-group">

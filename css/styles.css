@@ -4,50 +4,9 @@
 
 #copyright{
   padding-top: 15px;
-  /*color:white;*/
+
 }
 
-
-
-/* Open Sans - 300, 400, 700, 800 -- latin */
-
-/*@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 300;
-  src: url("../fonts/open-sans/open-sans-v13-latin-300.eot");*/
-  /* IE9 Compat Modes */
-  /*src: local("Open Sans"), local("OpenSans"), url("../fonts/open-sans/open-sans-v13-latin-300.woff2") format("woff2"), url("../fonts/open-sans/open-sans-v13-latin-300.woff") format("woff"), url("../fonts/open-sans/open-sans-v13-latin-300.ttf") format("truetype");*/
-  /* Safari, Android, iOS */
-  /*unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }*/
-/* open-sans-regular - latin */
-/*@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url("../fonts/open-sans/open-sans-v13-latin-regular.eot");*/
-  /* IE9 Compat Modes */
-  /*src: local("Open Sans"), local("OpenSans"), url("../fonts/open-sans/open-sans-v13-latin-400.woff2") format("woff2"), url("../fonts/open-sans/open-sans-v13-latin-regular.woff") format("woff"), url("../fonts/open-sans/open-sans-v13-latin-regular.ttf") format("truetype");*/
-  /* Safari, Android, iOS */
-  /*unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: url("../fonts/open-sans/open-sans-v13-latin-700.eot");*/
-  /* IE9 Compat Modes */
-  /*src: local("Open Sans"), local("OpenSans"), url("../fonts/open-sans/open-sans-v13-latin-700.woff2") format("woff2"), url("../fonts/open-sans/open-sans-v13-latin-700.woff") format("woff"), url("../fonts/open-sans/open-sans-v13-latin-700.ttf") format("truetype");*/
-  /* Safari, Android, iOS */
-  /*unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }*/
-/*@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 800;
-  src: url("../fonts/open-sans/open-sans-v13-latin-800.eot");*/
-  /* IE9 Compat Modes */
-  /*src: local("Open Sans"), local("OpenSans"), url("../fonts/open-sans/open-sans-v13-latin-800.woff2") format("woff2"), url("../fonts/open-sans/open-sans-v13-latin-800.woff") format("woff"), url("../fonts/open-sans/open-sans-v13-latin-800.ttf") format("truetype");*/
-  /* Safari, Android, iOS */
-  /*unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }*/
 * {
   font-family: 'Open Sans', Arial, sans-serif; }
 
@@ -648,6 +607,17 @@ button i {
   position: relative;;
 }
 
+#displayName{
+  position: relative;
+  left: 55%;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: #007BC0;
+}
+
+#userName{
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: #007BC0;
+}
 /* -------------- */
 /* --- Navbar --- */
 /* -------------- */
@@ -862,7 +832,7 @@ table.dataTable thead .sorting_desc {
 
 /*my adding for this project*/
 /*This is to set the dimensions for the well for register form*/
-.well{
+.registerWell{
   width:500px;
   height:800px;
   padding:30px 50px;
@@ -877,6 +847,10 @@ table.dataTable thead .sorting_desc {
 }
 /*end*/
 
+#unauthorisedWell{
+  background-color:#f4cecd;
+}
+
 /*This is to add padding for the login form*/
 #loginForm{
    padding-top: 50px;
@@ -885,7 +859,8 @@ table.dataTable thead .sorting_desc {
 
  /*This is to add the padding for the main view*/
  #mainView{
-   margin:150px 0px ;
+   margin-top:100px ;
+   padding-bottom:50px ;
  }
  /*end*/
 
@@ -1071,6 +1046,8 @@ table.dataTable thead .sorting_desc {
 #loginAlert{
   width:700px;
 }
+
+
 /*end*/
 
 /* EOF */
