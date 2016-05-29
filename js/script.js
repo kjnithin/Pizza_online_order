@@ -90,6 +90,7 @@ var postLogin = function() {
     var loginUser = document.getElementById('loginUser').value;
     var loginPassword = document.getElementById('loginPassword').value;
     username(loginUser);
+    personalDetails(loginUser);
     $.ajax({
         type: "POST",
         url: "authenticate/",
@@ -121,6 +122,7 @@ function loadView(obj) {
                 $("#displayName").show();
                 logoutBtn();
                 username();
+                personalDetails();
             } else if (obj.template == "admin.php") {
                 $("#btnLogin").hide();
                 $("#btnLogout").show();
@@ -211,3 +213,19 @@ function provinceDropDown() {
         }
     });
 }
+
+// ********************User Page******************
+function personalDetails(loginUser){
+  var name=loginUser;
+  $.ajax({
+    type:"POST",
+    url:"rest/getPersonalDetails.php",
+    data:({'name':name}),
+    success:function(data){
+      $.each(JSON.parse(data),function(k,v){
+        $("#usrNameTxt").html(v.name);
+      });
+    }
+  });
+}
+// ********************End of User Page***********

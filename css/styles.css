@@ -100,7 +100,25 @@
   color: #555; }
 
 .text-medium {
-  color: #555 !important; }
+  color: #555 !important;
+}
+
+#deleteUserBtn{
+    padding-left: 30px;
+}
+
+#trashIcon:hover{
+  transform: scale(1.5, 1.5);
+
+}
+
+#editUserBtn{
+    padding-left: 40px;
+}
+
+#editIcon:hover{
+  transform: scale(1.5, 1.5);
+}
 
 .text-muted {
   color: #777 !important; }
@@ -814,7 +832,7 @@ table.dataTable thead .sorting_desc {
 .menu-blob {
   cursor: pointer;
   border-radius: 100px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .menu-blob:hover {
@@ -832,7 +850,7 @@ table.dataTable thead .sorting_desc {
 
 /*my adding for this project*/
 /*This is to set the dimensions for the well for register form*/
-.registerWell{
+#registerWell{
   width:500px;
   height:800px;
   padding:30px 50px;
@@ -847,9 +865,11 @@ table.dataTable thead .sorting_desc {
 }
 /*end*/
 
+/*This is to set the background color for the well in unauthorised user page*/
 #unauthorisedWell{
   background-color:#f4cecd;
 }
+/*end*/
 
 /*This is to add padding for the login form*/
 #loginForm{

@@ -8,8 +8,8 @@
     </ul>
     <p class="text-danger">Please contact the admin or try to login</p>
     <div class="row">
-      <div class="col-md-2 col-md-offset-6">
-        <button type="button" class="btn btn-danger" id="unauthorisedLoginBtn"><i class="fa fa-sign-in fa-fw fa-2x"></i>Login</button>
+      <div class="col-md-4 col-md-offset-6">
+        <a id="unauthorisedLoginBtn" class="text-danger tab-header"><i class="fa fa-sign-in fa-fw fa-2x"></i>Login</a>
       </div>
   </div>
   </div>
