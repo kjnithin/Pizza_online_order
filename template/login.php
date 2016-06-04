@@ -1,4 +1,5 @@
-<!-- <div class="alert alert-success col-md-offset-2" role="alert"   id="loginAlert" ><i class="fa fa-user fa-lg pull-left"></i>  Successfully Registered !! Please Login...<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-label="Right Align" aria-hidden="true"></span></button></div> -->
+<div class="alert alert-success col-md-offset-2" role="alert"   id="loginAlert" ><i class="fa fa-user fa-lg pull-left"></i>  Successfully Registered !! Please Login...<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-label="Right Align" aria-hidden="true"></span></button></div>
+<div class="alert alert-danger col-md-offset-2" role="alert"   id="unregisterAlert" ><i class="fa fa-user fa-lg pull-left"></i> Your credentials has been successfully removed !!<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-label="Right Align" aria-hidden="true"></span></button></div>
 
 <!--Login-->
   <form onsubmit="postLogin();return false;" class="form-horizontal">

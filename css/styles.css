@@ -1,4 +1,4 @@
-.glyphicon.glyphicon-copyright-mark{
+4.glyphicon.glyphicon-copyright-mark{
   font-size: 20px;
 }
 
@@ -1062,17 +1062,34 @@ table.dataTable thead .sorting_desc {
 }
 /*end*/
 
-/*This is to set the width of alert message*/
+/*This is to set the width of alert message for the successful registration of the user*/
 #loginAlert{
   width:700px;
 }
 
-#usrNameTxt{
+/*This is to set the width of alert message for the successful Unregistration of the user*/
+#unregisterAlert{
+  width:700px;
+}
+
+/*This is for adjusting the alignment and font for the contents in the view of the personal details in the  user profile*/
+.showPersonalDetailsValue{
   height: 46px;
-    padding: 10px 16px;
+    padding-top: 10px;
+    text-align: right;
     font-size: 18px;
     line-height: 1.3333333;
     border-radius: 6px;
+}
+
+/*This is for adjusting the alignment for the contents in the view of the personal details in the  user profile*/
+.col-md-4.labelPersonalDetails{
+    text-align:right !important;
+}
+
+/*This is for adjusting the alignment for the contents in the view of the personal details in the  user profile*/
+.showPersonalDetails{
+  text-align:left;
 }
 
 

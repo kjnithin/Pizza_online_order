@@ -30,34 +30,35 @@
           <p class="tab-header" >Personal Details</p>
 
             <div class="form-group">
-            <label class="col-md-4  control-label">Name:</label>
-            <div class="col-md-8">
-              <font id="usrNameTxt"></font>
-              <!-- <input type="text"  class="input-lg form-control" id="usrNameTxt" required> -->
+            <label class="col-md-4 labelPersonalDetails ">Name:</label>
+            <div class="col-md-8" class="showPersonalDetails">
+              <font id="usrNameTxt" class="showPersonalDetailsValue"></font>
             </div>
             </div>
             <div class="form-group">
-            <label class="col-md-4  control-label">User Name:</label>
-            <div class="col-md-9">
-              <font id="usernameTxt"></font>
+            <label class="col-md-4 labelPersonalDetails">User Name:</label>
+            <div class="col-md-8" class="showPersonalDetails">
+              <font id="usernameTxt" class="showPersonalDetailsValue"></font>
             </div>
           </div>
           <div class="form-group">
-          <label class="col-md-4  control-label">Email:</label>
-          <div class="col-md-9">
-            <font id="emailTxt"></font>
+          <label class="col-md-4 labelPersonalDetails">Email:</label>
+          <div class="col-md-8" class="showPersonalDetails">
+            <font id="emailTxt" class="showPersonalDetailsValue"></font>
           </div>
         </div>
         <div class="form-group">
-        <label class="col-md-4  control-label">Address:</label>
-        <div class="col-md-9">
-          <font id="usrNameTxt"></font>
+        <label class="col-md-4 labelPersonalDetails">Address:</label>
+        <div class="col-md-8" class="showPersonalDetails">
+          <font id="aptTxt" class="showPersonalDetailsValue"></font> <font id="streetTxt" class="showPersonalDetailsValue"></font><br>
+          <font id="cityTxt" class="showPersonalDetailsValue"></font>, <font id="provinceTxt" class="showPersonalDetailsValue"></font><br>
+          <font id="postalTxt" class="showPersonalDetailsValue"></font>
         </div>
       </div>
       <div class="form-group">
-      <label class="col-md-4  control-label">Phone:</label>
-      <div class="col-md-9">
-        <font id="phoneTxt"></font>
+      <label class="col-md-4 labelPersonalDetails">Phone:</label>
+      <div class="col-md-8" class="showPersonalDetails">
+        <font id="phoneTxt" class="showPersonalDetailsValue"></font>
       </div>
     </div>
 
@@ -95,7 +96,7 @@
       <div class="modal-content">
         <div class="modal-header row">
           <div class='col-xs-10 rm-padding'>
-            <h2 class="modal-title" id="myModalLabel">  <i class="fa fa-user fa-fw"></i> Edit PROFILE</h2>
+            <h2 class="modal-title" id="myModalLabel">  <i class="fa fa-user fa-fw"></i> Edit Profile</h2>
           </div>
           <div class='col-xs-2 rm-padding'>
             <button type="button" data-dismiss="modal" class="close" aria-label="Close"><i class="fa fa-times fa-fw fa-2x"></i></button>
@@ -168,7 +169,7 @@
     <div class="modal-content">
       <div class="modal-header row">
         <div class='col-xs-10 rm-padding'>
-          <h2 class="modal-title" id="myModalLabel">  <i class="fa fa-trash-o fa-fw"></i> DELETE</h2>
+          <h2 class="modal-title" id="myModalLabel">  <i class="fa fa-trash-o fa-fw"></i> Delete</h2>
         </div>
         <div class='col-xs-2 rm-padding'>
           <button type="button" data-dismiss="modal" class="close" aria-label="Close"><i class="fa fa-times fa-fw fa-2x"></i></button>

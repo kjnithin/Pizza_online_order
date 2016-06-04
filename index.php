@@ -3,8 +3,10 @@
         <head>
             <script src="js/jquery-1.12.1.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <!-- <script src="js/bootstrap.min.js"></script> -->
             <script src="js/script.js"></script>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+            <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
             <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <link rel="stylesheet" type="text/css" href="css/styles.css">

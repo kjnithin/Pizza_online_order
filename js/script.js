@@ -2,7 +2,7 @@ $(document).ready(function() {
     login();
 
     //This is  to clear all the stored sessions
-   sessionStorage.clear();
+    sessionStorage.clear();
 });
 
 // Load the login form
@@ -17,6 +17,8 @@ function login() {
             $("#btnLogout").hide();
             $("#loginSpinner").hide();
             $("#displayName").hide();
+            $("#unregisterAlert").hide();
+            $("#loginAlert").hide();
             loginPassowrdEye();
             loginSpinnerShow();
             loadRegistrationPage();
@@ -125,7 +127,7 @@ function loadView(obj) {
                 username();
                 personalDetails();
                 showEditModal();
-                // showDeleteModal();
+                showDeleteModal();
                 provinceDropDown();
             } else if (obj.template == "admin.php") {
                 $("#btnLogin").hide();
@@ -151,9 +153,9 @@ function unauthorisedLogin() {
 
 //Display the username in the navbar after successful login
 function username() {
-  var user=sessionStorage.getItem("user");
-  var name = user;
-  $.ajax({
+    var user = sessionStorage.getItem("user");
+    var name = user;
+    $.ajax({
         type: "POST",
         url: "rest/getUsername.php",
         data: ({
@@ -161,7 +163,7 @@ function username() {
         }),
         success: function(data) {
             $.each(JSON.parse(data), function(k, v) {
-              sessionStorage.setItem("username",v.name);
+                sessionStorage.setItem("username", v.name);
                 $("#userName").html(v.name);
             });
         }
@@ -197,9 +199,24 @@ var postRegister = function() {
         }),
         success: function(data, status) {
             if (status == "success") {
-                login();
-            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "template/login.php",
+                    data: "",
+                    success: function(data) {
+                        $("#mainView").html(data);
+                        $("#btnLogin").hide();
+                        $("#btnLogout").hide();
+                        $("#loginSpinner").hide();
+                        $("#displayName").hide();
+                        $("#unregisterAlert").hide();
+                        $("#loginAlert").show();
+                        loginPassowrdEye();
+                        loginSpinnerShow();
+                        loadRegistrationPage();
 
+                    }
+                });
             }
         }
     });
@@ -225,102 +242,138 @@ function provinceDropDown() {
 }
 
 // ********************User Page******************
-function personalDetails(){
-  var name=sessionStorage.getItem("user");
-  $.ajax({
-    type:"POST",
-    url:"rest/getPersonalDetails.php",
-    data:({'name':name}),
-    success:function(data){
-      console.log(data);
-      $.each(JSON.parse(data),function(k,v){
-        document.getElementById('usrNameTxt').value=v.name;
-        $("#usrNameTxt").html(v.name);
-        $("#usernameTxt").html(v.username);
-        $("#emailTxt").html(v.email);
-        $("#usrNameTxt").html(v.name);
-        $("#usrNameTxt").html(v.name);
-        $("#phoneTxt").html(v.phone);
-      });
-    }
-  });
+function personalDetails() {
+    var name = sessionStorage.getItem("user");
+    $.ajax({
+        type: "POST",
+        url: "rest/getPersonalDetails.php",
+        data: ({
+            'name': name
+        }),
+        success: function(data) {
+            $.each(JSON.parse(data), function(k, v) {
+                document.getElementById('usrNameTxt').value = v.name;
+                $("#usrNameTxt").html(v.name);
+                $("#usernameTxt").html(v.username);
+                $("#emailTxt").html(v.email);
+                $("#aptTxt").html(v.apt);
+                $("#streetTxt").html(v.street);
+                $("#cityTxt").html(v.city);
+                $("#provinceTxt").html(v.province);
+                $("#postalTxt").html(v.postal);
+                $("#phoneTxt").html(v.phone);
+            });
+        }
+    });
 }
 
 // This is to get the details from the database and display it in edit modal
-function showEditModal(){
-  $("#editIcon").on('click', function(){
-    var name=sessionStorage.getItem("user");
-    $.ajax({
-      type:'POST',
-      url:"rest/getPersonalDetails.php",
-      data:({'name':name}),
-      success:function(data,status){
-          console.log(data);
-        $.each(JSON.parse(data),function(k,v){
-          document.getElementById('editName').value=v.name;
-          document.getElementById('editUsername').value=v.username;
-          document.getElementById('editEmail').value=v.email;
-          document.getElementById('editApt').value=v.apt;
-          document.getElementById('editStreet').value=v.street;
-          document.getElementById('editCity').value=v.city;
-          document.getElementById('editProvince').value=v.province;
-          document.getElementById('editPostal').value=v.postal;
-          document.getElementById('editTel').value=v.phone;
+function showEditModal() {
+    $("#editIcon").on('click', function() {
+        var name = sessionStorage.getItem("user");
+        $.ajax({
+            type: 'POST',
+            url: "rest/getPersonalDetails.php",
+            data: ({
+                'name': name
+            }),
+            success: function(data, status) {
+                $.each(JSON.parse(data), function(k, v) {
+                    document.getElementById('editName').value = v.name;
+                    document.getElementById('editUsername').value = v.username;
+                    document.getElementById('editEmail').value = v.email;
+                    document.getElementById('editApt').value = v.apt;
+                    document.getElementById('editStreet').value = v.street;
+                    document.getElementById('editCity').value = v.city;
+                    document.getElementById('editProvince').value = v.province;
+                    document.getElementById('editPostal').value = v.postal;
+                    document.getElementById('editTel').value = v.phone;
+                });
+                $("#myModalEdit").modal('show');
+            }
         });
-        $("#myModalEdit").modal('show');
-      }
-    });
 
-  });
+    });
 }
 
 // This is to post the updated data in the  edit modal
-var edituser=function(){
-  var editname=document.getElementById('editName').value;
-  var editusername=document.getElementById('editUsername').value;
-  var editemail=document.getElementById('editEmail').value;
-  var editapt=document.getElementById('editApt').value;
-  var editstreet=document.getElementById('editStreet').value;
-  var editcity=document.getElementById('editCity').value;
-  var editprovince=document.getElementById('editProvince').value;
-  var editpostal=document.getElementById('editPostal').value;
-  var edittel=document.getElementById('editTel').value;
-  $.ajax({
-    type:'POST',
-    url:"rest/updateUserdetails.php",
-    data:({'editname':editname,'editusername':editusername,'editemail':editemail,'editapt':editapt,
-          'editstreet':editstreet,'editcity':editcity,'editprovince':editprovince,'editpostal':editpostal,'edittel':edittel}),
-    success:function(data,status){
-      if(status =="success"){
-        username();
-      }
-       $("#myModalEdit").modal('hide');
-     }
-  });
+var edituser = function() {
+    var editname = document.getElementById('editName').value;
+    var editusername = document.getElementById('editUsername').value;
+    var editemail = document.getElementById('editEmail').value;
+    var editapt = document.getElementById('editApt').value;
+    var editstreet = document.getElementById('editStreet').value;
+    var editcity = document.getElementById('editCity').value;
+    var editprovince = document.getElementById('editProvince').value;
+    var editpostal = document.getElementById('editPostal').value;
+    var edittel = document.getElementById('editTel').value;
+    $.ajax({
+        type: 'POST',
+        url: "rest/updateUserdetails.php",
+        data: ({
+            'editname': editname,
+            'editusername': editusername,
+            'editemail': editemail,
+            'editapt': editapt,
+            'editstreet': editstreet,
+            'editcity': editcity,
+            'editprovince': editprovince,
+            'editpostal': editpostal,
+            'edittel': edittel
+        }),
+        success: function(data, status) {
+            if (status == "success") {
+                username();
+                personalDetails();
+            }
+            $("#myModalEdit").modal('hide');
+        }
+    });
 }
 
 // This is to show the delete user profile modal
-// function showDeleteModal(){
-//   $("#trashIcon").on('click',function(){
-//     var name=sessionStorage.getItem("username");
-//     $("#deleteUser").html(name);
-//     $("#myModalDel").modal('show');
-//   });
-// }
+function showDeleteModal() {
+    $("#trashIcon").on('click', function() {
+        var name = sessionStorage.getItem("username");
+        $("#deleteUser").html(name);
+        $("#myModalDel").modal('show');
+    });
+}
 
 // This is to delete the user profile
-// function hideDeleteModal(){
-  // var name=sessionStorage.getItem("user");
-  //   $.ajax({
-  //     type:"POST",
-  //     url:"rest/deleteUserProfile.php",
-  //     data:({'name':name}),
-  //     success:function(data,status,xhr){
-  //       if(status=="success"){
-  //         login();
-  //       }
-  //       $("#myModalDel").modal('hide');
-  //     }
-  //   });
-  // }
+function hideDeleteModal() {
+    var name = sessionStorage.getItem("user");
+
+    $.ajax({
+        type: "POST",
+        url: "rest/deleteUserProfile.php",
+        data: ({
+            'name': name
+        }),
+        success: function(data, status) {
+            if (status == "success") {
+                $.ajax({
+                    type: "POST",
+                    url: "template/login.php",
+                    data: "",
+                    success: function(data) {
+                        $("#mainView").html(data);
+                        $("#btnLogin").hide();
+                        $("#btnLogout").hide();
+                        $("#loginSpinner").hide();
+                        $("#displayName").hide();
+                        $("#unregisterAlert").show();
+                        $("#loginAlert").hide();
+                        loginPassowrdEye();
+                        loginSpinnerShow();
+                        loadRegistrationPage();
+                    }
+                });
+            }
+            $("#myModalDel").modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        }
+    });
+}
 // ********************End of User Page***********
