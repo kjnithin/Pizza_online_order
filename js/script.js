@@ -135,6 +135,10 @@ function loadView(obj) {
                 $("#displayName").show();
                 logoutBtn();
                 username();
+                showAdminName();
+                showAdminDetails();
+                addNewAdmin();
+                provinceDropDown();
             } else if (obj.template == "unauthorisedUser.php") {
                 $("#btnLogin").show();
                 loginBtn();
@@ -153,8 +157,7 @@ function unauthorisedLogin() {
 
 //Display the username in the navbar after successful login
 function username() {
-    var user = sessionStorage.getItem("user");
-    var name = user;
+    var name = sessionStorage.getItem("user");
     $.ajax({
         type: "POST",
         url: "rest/getUsername.php",
@@ -235,6 +238,9 @@ function provinceDropDown() {
                 $("#editProvince").append(
                     $('<option value="' + v.name + '">' + v.name + '</option>')
                 );
+                $("#addProvince").append(
+                    $('<option value="' + v.name + '">' + v.name + '</option>')
+                );
             });
 
         }
@@ -252,7 +258,6 @@ function personalDetails() {
         }),
         success: function(data) {
             $.each(JSON.parse(data), function(k, v) {
-                document.getElementById('usrNameTxt').value = v.name;
                 $("#usrNameTxt").html(v.name);
                 $("#usernameTxt").html(v.username);
                 $("#emailTxt").html(v.email);
@@ -377,3 +382,122 @@ function hideDeleteModal() {
     });
 }
 // ********************End of User Page***********
+
+// ***************Admin Page*********************
+// This is to show the details of the logined Admin
+function showAdminDetails() {
+    var name = sessionStorage.getItem("user");
+    $.ajax({
+        type: "POST",
+        url: "rest/getPersonalDetails.php",
+        data: ({
+            'name': name
+        }),
+        success: function(data) {
+            $.each(JSON.parse(data), function(k, v) {
+                $("#adminNameTxt").html(v.name);
+                $("#adminUsernameTxt").html(v.username);
+                $("#adminEmailTxt").html(v.email);
+                $("#adminAptTxt").html(v.apt);
+                $("#adminStreetTxt").html(v.street);
+                $("#adminCityTxt").html(v.city);
+                $("#adminProvinceTxt").html(v.province);
+                $("#adminPostalTxt").html(v.postal);
+                $("#adminPhoneTxt").html(v.phone);
+            });
+        }
+    });
+}
+
+// This is t show the list of admin's name in the admin details tab
+function showAdminName() {
+    $.ajax({
+        type: "POST",
+        url: "rest/getAdminDetails.php",
+        data: "",
+        success: function(data) {
+            $.each(JSON.parse(data), function(k, v) {
+                $("#adminNameList").append(
+                    $('<a class="list-group-item" id="nameList" active>' + v.name + '</a>')
+                );
+            });
+            getAdminName();
+        }
+    });
+}
+
+// This is to get the details of particular admin by clicking on list
+function getAdminName() {
+    $("#adminNameList a").click(function() {
+        var name = $(this).text();
+        sessionStorage.setItem("name", name);
+        $.ajax({
+            type: "POST",
+            url: "rest/getAdminName.php",
+            data: ({
+                'name': name
+            }),
+            success: function(data) {
+                $.each(JSON.parse(data), function(k, v) {
+                    $("#adminNameTxt").html(v.name);
+                    $("#adminUsernameTxt").html(v.username);
+                    $("#adminEmailTxt").html(v.email);
+                    $("#adminAptTxt").html(v.apt);
+                    $("#adminStreetTxt").html(v.street);
+                    $("#adminCityTxt").html(v.city);
+                    $("#adminProvinceTxt").html(v.province);
+                    $("#adminPostalTxt").html(v.postal);
+                    $("#adminPhoneTxt").html(v.phone);
+                });
+            }
+        });
+    });
+}
+
+// This is to show the modal for adding the new admin
+function addNewAdmin() {
+    $("#addAdminIcon").on('click', function() {
+        $("#addAdminModal").modal('show');
+    });
+}
+
+// This is the form submitted to add the new admin
+var addAdmin = function() {
+    var name = document.getElementById('addName').value;
+    var username = document.getElementById('addUsername').value;
+    var password = document.getElementById('addPassword').value;
+    var email = document.getElementById('addEmail').value;
+    var apt = document.getElementById('addApt').value;
+    var street = document.getElementById('addStreet').value;
+    var city = document.getElementById('addCity').value;
+    var province = document.getElementById('addProvince').value;
+    var postal = document.getElementById('addPostal').value;
+    var tel = document.getElementById('addTel').value;
+    $.ajax({
+        type: 'POST',
+        url: "rest/addAdmin.php",
+        data: ({
+            'name': name,
+            'username': username,
+            'password': password,
+            'email': email,
+            'apt': apt,
+            'street': street,
+            'city': city,
+            'province': province,
+            'postal': postal,
+            'tel': tel
+        }),
+        success: function(data, status) {
+            console.log(data);
+            if (status == "success") {
+                showAdminName();
+            }
+            $("#addAdminModal").modal('hide');
+        }
+    });
+}
+
+
+
+// // **************End of Admin Page****************

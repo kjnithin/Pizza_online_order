@@ -120,6 +120,27 @@
   transform: scale(1.5, 1.5);
 }
 
+#trashAdminIcon:hover{
+  transform: scale(1.5, 1.5);
+}
+
+#editAdminIcon:hover{
+  transform: scale(1.25, 1.25);
+}
+
+#editAdminBtn{
+  padding-left:15px;
+}
+
+#addAdminBtn{
+  padding-left:15px;
+}
+
+#nameList{
+  color: #007BC0;
+  font-weight: 700;
+}
+
 .text-muted {
   color: #777 !important; }
 
