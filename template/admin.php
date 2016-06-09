@@ -40,7 +40,7 @@
           <div role='tabpanel' id='admin' class='tab-pane'>
            <div class="row">
              <div class="col-md-3">
-               <div class="list-group" id="adminNameList">
+               <div class="list-group" id="adminNameList" data-reload="true">
                </div>
              </div>
              <div class="col-md-7 well form-horizontal">
@@ -189,6 +189,32 @@
             </div>
           </div>
           <!--End of add model-->
+
+          <!-- Delete admin Modal -->
+          <div class="modal fade" id="adminDelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+           <div class="modal-dialog" role="document">
+             <div class="modal-content">
+               <div class="modal-header row">
+                 <div class='col-xs-10 rm-padding'>
+                   <h2 class="modal-title" id="myModalLabel">  <i class="fa fa-trash-o fa-fw"></i> Delete</h2>
+                 </div>
+                 <div class='col-xs-2 rm-padding'>
+                   <button type="button" data-dismiss="modal" class="close" aria-label="Close"><i class="fa fa-times fa-fw fa-2x"></i></button>
+                 </div>
+               </div>
+               <div class="modal-body">
+                 <div class='col-md-12 text-center'>
+                   <p>Do you want to delete the user account for <font class='bolder' id="deleteAdmin"></font>?</p>
+                 </div>
+               </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-warning btn-lg pull-left" data-dismiss="modal">CANCEL</button>
+                 <button type="button" class="btn btn-danger btn-lg pull-right" onclick="deleteAdminModal();">DELETE</button>
+               </div>
+             </div>
+           </div>
+         </div>
+         <!--End of Modal-->
            </div>
          </div>
        </div>

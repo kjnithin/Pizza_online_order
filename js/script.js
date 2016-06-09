@@ -139,6 +139,7 @@ function loadView(obj) {
                 showAdminDetails();
                 addNewAdmin();
                 provinceDropDown();
+                deleteAdminCredentials();
             } else if (obj.template == "unauthorisedUser.php") {
                 $("#btnLogin").show();
                 loginBtn();
@@ -348,7 +349,6 @@ function showDeleteModal() {
 // This is to delete the user profile
 function hideDeleteModal() {
     var name = sessionStorage.getItem("user");
-
     $.ajax({
         type: "POST",
         url: "rest/deleteUserProfile.php",
@@ -396,6 +396,7 @@ function showAdminDetails() {
         success: function(data) {
             $.each(JSON.parse(data), function(k, v) {
                 $("#adminNameTxt").html(v.name);
+                $("#deleteAdmin").html(v.name);
                 $("#adminUsernameTxt").html(v.username);
                 $("#adminEmailTxt").html(v.email);
                 $("#adminAptTxt").html(v.apt);
@@ -440,6 +441,7 @@ function getAdminName() {
             success: function(data) {
                 $.each(JSON.parse(data), function(k, v) {
                     $("#adminNameTxt").html(v.name);
+                    $("#deleteAdmin").html(v.name);
                     $("#adminUsernameTxt").html(v.username);
                     $("#adminEmailTxt").html(v.email);
                     $("#adminAptTxt").html(v.apt);
@@ -489,7 +491,6 @@ var addAdmin = function() {
             'tel': tel
         }),
         success: function(data, status) {
-            console.log(data);
             if (status == "success") {
                 showAdminName();
             }
@@ -498,6 +499,65 @@ var addAdmin = function() {
     });
 }
 
+// This is to show the delete modal
+function deleteAdminCredentials() {
+    $("#trashAdminIcon").on('click', function() {
+        $("#adminDelModal").modal('show');
+    });
+}
 
+// This is to delete the admin credentials
+function deleteAdminModal() {
+    var userName = sessionStorage.getItem("username");
+    var name = $("#deleteAdmin").text();
+    if (userName === name) {
+        $.ajax({
+            type: 'POST',
+            url: 'rest/deleteAdmin.php',
+            data: ({
+                'name': name
+            }),
+            success: function(data, status) {
+                if (status == 'success') {
+                    $.ajax({
+                        type: "POST",
+                        url: "template/login.php",
+                        data: "",
+                        success: function(data) {
+                            $("#mainView").html(data);
+                            $("#btnLogin").hide();
+                            $("#btnLogout").hide();
+                            $("#loginSpinner").hide();
+                            $("#displayName").hide();
+                            $("#unregisterAlert").show();
+                            $("#loginAlert").hide();
+                            loginPassowrdEye();
+                            loginSpinnerShow();
+                            loadRegistrationPage();
+                        }
+                    });
+                }
+                $("#adminDelModal").modal('hide');
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+            }
+        });
+    } else {
+        $.ajax({
+            type: 'POST',
+            url: "rest/deleteAdmin.php",
+            data: ({
+                'name': name
+            }),
+            success: function(data, status) {
+                if (status == 'success') {
+                    showAdminName();
+                }
+                $("#adminDelModal").modal('hide');
+            }
+        });
+    }
+
+}
 
 // // **************End of Admin Page****************
