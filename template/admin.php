@@ -6,7 +6,7 @@
       <a href="#order" aria-controls="order" role="tab" data-toggle="tab"><font class='tab-header'><i class='fa fa-cutlery'></i> Orders</font></a>
     </li>
     <li role="presentation">
-      <a href="#personal" aria-controls="personal" role="tab" data-toggle="tab"><font class='tab-header'><i class='fa fa-info'></i> Personal Data</font></a>
+      <a href="#inventory" aria-controls="personal" role="tab" data-toggle="tab"><font class='tab-header'><i class='fa fa-info'></i> Inventory</font></a>
     </li>
     <li role="presentation">
       <a href="#history" aria-controls="history" role="tab" data-toggle="tab"><font class='tab-header'><i class='fa fa-history'></i> History</font></a>
@@ -27,7 +27,7 @@
           hi
         </div>
         <!--end-->
-          <div role='tabpanel' id='personal' class='tab-pane'>
+          <div role='tabpanel' id='inventory' class='tab-pane'>
           </div>
           <div role='tabpanel' id='history' class='tab-pane'>
           </div>
@@ -215,6 +215,79 @@
            </div>
          </div>
          <!--End of Modal-->
+
+         <!--Edit admin Modal-->
+       <div class="modal fade" id="adminModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header row">
+             <div class='col-xs-10 rm-padding'>
+               <h2 class="modal-title" id="myModalLabel">  <i class="fa fa-user fa-fw"></i> Edit Profile</h2>
+             </div>
+             <div class='col-xs-2 rm-padding'>
+               <button type="button" data-dismiss="modal" class="close" aria-label="Close"><i class="fa fa-times fa-fw fa-2x"></i></button>
+             </div>
+           </div>
+           <form  onsubmit="editadmin();return false;">
+           <div class="modal-body">
+            <div class="form-group">
+              <label for="name" class="required">Name</label>
+              <input type="text"  class="input-lg form-control" id="editAdminName" required>
+            </div>
+            <div class="form-group">
+              <label for="username">User Name</label>
+              <input type="text"  class="input-lg form-control" id="editAdminUsername" name="username" readonly>
+            </div>
+            <div class="form-group">
+              <label for="email" class="control-label required">Email</label>
+              <input type="email" class="input-lg form-control" id="editAdminEmail" required>
+            </div>
+            <div class="form-group">
+              <div class='form-inline'>
+                <div class="form-group">
+                  <div class="col-xs-3">
+                    <label for="apt" class="required">Apt.</label>
+                    <input class="input-lg form-control" id="editAdminApt" type="text" required>
+                  </div>
+                  <div class="col-xs-8">
+                    <label for="street" class="col-md-offset-5 required">Street</label>
+                    <input class="input-lg form-control col-md-offset-5" id="editAdminStreet" type="text" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputCity" class="control-label required">City</label>
+              <input type="text" class="input-lg form-control" id="editAdminCity" required>
+            </div>
+            <div class="form-group">
+              <label for="inputProvince" class="control-label required">Province</label>
+              <select class=" input-lg form-control" id="editAdminProvince" required>
+                <option value="">None</option>
+              </select>
+            </div>
+              <div class='form-inline'>
+                <div class="form-group">
+                  <div class="col-xs-6" >
+                    <label for="postal" class="required">Postal Code</label>
+                    <input class="input-lg form-control" id="editAdminPostal" type="text" required>
+                  </div>
+                  <div class="col-xs-6" >
+                    <label for="telephone" class="required">Telephone</label>
+                    <input class="input-lg form-control" id="editAdminTel" type="text" required>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning pull-left btn-lg" data-dismiss="modal">CANCEL</button>
+            <button type="submit" class="btn btn-success pull-right btn-lg">EDIT</button>
+          </div>
+        </form>
+       </div>
+      </div>
+    </div>
+    <!--End of edit model-->
            </div>
          </div>
        </div>

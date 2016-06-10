@@ -140,6 +140,7 @@ function loadView(obj) {
                 addNewAdmin();
                 provinceDropDown();
                 deleteAdminCredentials();
+                getAdminCredentials();
             } else if (obj.template == "unauthorisedUser.php") {
                 $("#btnLogin").show();
                 loginBtn();
@@ -242,6 +243,10 @@ function provinceDropDown() {
                 $("#addProvince").append(
                     $('<option value="' + v.name + '">' + v.name + '</option>')
                 );
+                $("#editAdminProvince").append(
+                    $('<option value="' + v.name + '">' + v.name + '</option>')
+                );
+
             });
 
         }
@@ -492,6 +497,7 @@ var addAdmin = function() {
         }),
         success: function(data, status) {
             if (status == "success") {
+                $("#adminNameList").empty();
                 showAdminName();
             }
             $("#addAdminModal").modal('hide');
@@ -551,13 +557,80 @@ function deleteAdminModal() {
             }),
             success: function(data, status) {
                 if (status == 'success') {
+                    $("#adminNameList").empty();
                     showAdminName();
                 }
                 $("#adminDelModal").modal('hide');
             }
         });
     }
+}
 
+// This is to edit the admin
+function getAdminCredentials(){
+  $("#editAdminIcon").on('click', function() {
+      var name = sessionStorage.getItem("username");
+      $.ajax({
+          type: 'POST',
+          url: "rest/getAdminName.php",
+          data: ({
+              'name': name
+          }),
+          success: function(data, status) {
+              $.each(JSON.parse(data), function(k, v) {
+                  document.getElementById('editAdminName').value = v.name;
+                  document.getElementById('editAdminUsername').value = v.username;
+                  document.getElementById('editAdminEmail').value = v.email;
+                  document.getElementById('editAdminApt').value = v.apt;
+                  document.getElementById('editAdminStreet').value = v.street;
+                  document.getElementById('editAdminCity').value = v.city;
+                  document.getElementById('editAdminProvince').value = v.province;
+                  document.getElementById('editAdminPostal').value = v.postal;
+                  document.getElementById('editAdminTel').value = v.phone;
+              });
+              $("#adminModalEdit").modal('show');
+          }
+      });
+
+  });
+}
+
+// This is to post the edited admin details 
+var editadmin= function(){
+  var editname = document.getElementById('editAdminName').value;
+  var editusername = document.getElementById('editAdminUsername').value;
+  var editemail = document.getElementById('editAdminEmail').value;
+  var editapt = document.getElementById('editAdminApt').value;
+  var editstreet = document.getElementById('editAdminStreet').value;
+  var editcity = document.getElementById('editAdminCity').value;
+  var editprovince = document.getElementById('editAdminProvince').value;
+  var editpostal = document.getElementById('editAdminPostal').value;
+  var edittel = document.getElementById('editAdminTel').value;
+  $.ajax({
+      type: 'POST',
+      url: "rest/updateUserdetails.php",
+      data: ({
+          'editname': editname,
+          'editusername': editusername,
+          'editemail': editemail,
+          'editapt': editapt,
+          'editstreet': editstreet,
+          'editcity': editcity,
+          'editprovince': editprovince,
+          'editpostal': editpostal,
+          'edittel': edittel
+      }),
+      success: function(data, status) {
+          if (status == "success") {
+            $("#adminNameList").empty();
+              showAdminName();
+              username();
+              showAdminDetails();
+              getAdminName();
+          }
+          $("#adminModalEdit").modal('hide');
+      }
+  });
 }
 
 // // **************End of Admin Page****************
