@@ -31,6 +31,7 @@
           </div>
           <div role='tabpanel' id='history' class='tab-pane'>
           </div>
+<<<<<<< HEAD
 
           <!-- This is the tab for user details-->
           <div role='tabpanel' id='user' class='tab-pane'>
@@ -78,6 +79,13 @@
         </div>
       </div>
 
+=======
+          <!-- This is hte tab for user details-->
+          <div role='tabpanel' id='user' class='tab-pane'>
+            hello
+          </div>
+          <!--End of user details-->
+>>>>>>> 371ae103b24de32e7eb977c7a5d30ad56d90157f
           <!--This is the tab for admin details-->
           <div role='tabpanel' id='admin' class='tab-pane'>
            <div class="row">
