@@ -597,11 +597,11 @@ function getAdminCredentials(){
   });
 }
 
-<<<<<<< HEAD
+
 // This is to post the edited admin details
-=======
+
 // This is to post the edited admin details
->>>>>>> 371ae103b24de32e7eb977c7a5d30ad56d90157f
+
 var editadmin= function(){
   var editname = document.getElementById('editAdminName').value;
   var editusername = document.getElementById('editAdminUsername').value;
