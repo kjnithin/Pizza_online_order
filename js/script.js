@@ -96,7 +96,7 @@ var postLogin = function() {
     sessionStorage.setItem("user", loginUser);
     $.ajax({
         type: "POST",
-        url: "authenticate/",
+        url: "https://pizzeriashop.herokuapp.com/authenticate/",
         data: ({
             'loginUser': loginUser,
             'loginPassword': loginPassword
