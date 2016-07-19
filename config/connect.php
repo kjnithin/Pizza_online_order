@@ -28,6 +28,7 @@ class Database
         try
         {
           self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);
+            echo "hi";
         }
         catch(PDOException $e)
         {
