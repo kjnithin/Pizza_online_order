@@ -141,11 +141,8 @@ function loadView(obj) {
                 provinceDropDown();
                 deleteAdminCredentials();
                 getAdminCredentials();
-<<<<<<< HEAD
                 showUserName();
                 deleteCurrentUser();
-=======
->>>>>>> 371ae103b24de32e7eb977c7a5d30ad56d90157f
             } else if (obj.template == "unauthorisedUser.php") {
                 $("#btnLogin").show();
                 loginBtn();
@@ -603,7 +600,7 @@ function getAdminCredentials(){
 <<<<<<< HEAD
 // This is to post the edited admin details
 =======
-// This is to post the edited admin details 
+// This is to post the edited admin details
 >>>>>>> 371ae103b24de32e7eb977c7a5d30ad56d90157f
 var editadmin= function(){
   var editname = document.getElementById('editAdminName').value;
