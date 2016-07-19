@@ -94,14 +94,16 @@ var postLogin = function() {
     var loginUser = document.getElementById('loginUser').value;
     var loginPassword = document.getElementById('loginPassword').value;
     sessionStorage.setItem("user", loginUser);
+    console.log("hi");
     $.ajax({
         type: "POST",
-        url: "https://pizzeriashop.herokuapp.com/authenticate/",
+        url: "authenticate/",
         data: ({
             'loginUser': loginUser,
             'loginPassword': loginPassword
         }),
         success: function(data) {
+            console.log(data);
             data = JSON.parse(data);
             loadView({
                 "template": data.template
