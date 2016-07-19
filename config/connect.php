@@ -12,7 +12,7 @@ class Database
     private $url = parse_url(getenv("mysql://bca03c24119a3e:b1fb2043@us-cdbr-iron-east-04.cleardb.net/heroku_079ac9234a32ec1?reconnect=true"));
   private $dbHost = $this->url["host"];
   private $dbUsername = $this->url["bca03c24119a3e"];
-  private $dbUserPassword = $this->url["b1fb2043"];
+  private $dbUserPassword = $this->url["b1fb204"];
   private $dbName = substr($this->url["heroku_079ac9234a32ec1"], 1);
   private static $cont  = null;
 
@@ -28,7 +28,7 @@ class Database
         try
         {
           self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);
-            echo "hi";
+           
         }
         catch(PDOException $e)
         {
