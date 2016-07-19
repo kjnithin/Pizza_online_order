@@ -639,7 +639,7 @@ var editadmin= function(){
   });
 }
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
 // Get the user personal name
 function showUserName(){
   $.ajax({
@@ -705,6 +705,6 @@ function deleteCurrentUser(){
   });
 }
 
-=======
->>>>>>> 371ae103b24de32e7eb977c7a5d30ad56d90157f
+// =======
+// >>>>>>> 371ae103b24de32e7eb977c7a5d30ad56d90157f
 // // **************End of Admin Page****************
