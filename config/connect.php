@@ -51,8 +51,19 @@ $username = $url["bca03c24119a3e"];
 $password = $url["b1fb2043"];
 $db = substr($url["heroku_079ac9234a32ec1"], 1);
 
-$conn = new mysqli($server, $username, $password, $db);
-echo "coneection success";
+//$conn = new mysqli($server, $username, $password, $db);
+//echo "coneection success";
+
+try {
+    $con = new PDO("mysql:host={$server};dbname={$db}", $username, $password);
+}
+ 
+// show error
+catch(PDOException $exception){
+    echo "Connection error: " . $exception->getMessage();
+}
+?>
+
 ?>
 
 
