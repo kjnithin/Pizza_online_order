@@ -2,7 +2,7 @@
 error_reporting(0);
 session_start();
 include('../config/connect.php');
-$pdo = Database::connect();
+
 $_GET['loginUser'] ? $loginUser = $_id['loginUser'] : $loginUser = $_POST['loginUser'];
 $_GET['loginPassword'] ? $loginPassword = $_id['loginPassword'] : $loginPassword = $_POST['loginPassword'];
 
