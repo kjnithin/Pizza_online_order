@@ -25,7 +25,7 @@ $db = substr($url["heroku_079ac9234a32ec1"], 1);
 
 try
 {
- $DB_con = new PDO("mysql:host={$server};dbname={$db}",$username,$password);
+ $DB_con = new PDO("mysql:host=$server;dbname=$db",$username,$password);
  $DB_con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  echo "success";
 }
