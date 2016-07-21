@@ -94,7 +94,6 @@ var postLogin = function() {
     var loginUser = document.getElementById('loginUser').value;
     var loginPassword = document.getElementById('loginPassword').value;
     sessionStorage.setItem("user", loginUser);
-    console.log("hi");
     $.ajax({
         type: "POST",
         url: "authenticate/",
@@ -103,7 +102,6 @@ var postLogin = function() {
             'loginPassword': loginPassword
         }),
         success: function(data) {
-            console.log(data);
             data = JSON.parse(data);
             loadView({
                 "template": data.template
@@ -237,7 +235,9 @@ function provinceDropDown() {
         type: "POST",
         url: "rest/provinceForRegForm.php",
         success: function(data) {
+          console.log(data);
             $.each(JSON.parse(data), function(k, v) {
+              console.log(v.name);
                 $("#regProvince").append(
                     $('<option value="' + v.name + '">' + v.name + '</option>')
                 );
