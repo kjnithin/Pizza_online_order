@@ -102,6 +102,7 @@ var postLogin = function() {
             'loginPassword': loginPassword
         }),
         success: function(data) {
+          console.log(data);
             data = JSON.parse(data);
             loadView({
                 "template": data.template
