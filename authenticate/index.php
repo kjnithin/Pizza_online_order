@@ -6,10 +6,9 @@ include('../config/connect.php');
 $_GET['loginUser'] ? $loginUser = $_id['loginUser'] : $loginUser = $_POST['loginUser'];
 $_GET['loginPassword'] ? $loginPassword = $_id['loginPassword'] : $loginPassword = $_POST['loginPassword'];
 
-print_r($loginUser);
-print_r($loginPassword);
+
 // $query= mysqli_query($conn,);
-$sql=$conn->query("SELECT * From user where username='".$loginUser."'");
+$sql=$conn->query("SELECT * From user where heroku_079ac9234a32ec1.username='".$loginUser."'");
 
 $row=mysqli_fetch_all($sql,MYSQLI_ASSOC);
 
