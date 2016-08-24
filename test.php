@@ -19,4 +19,13 @@ catch(Exception $e){
   echo $e->getMessage();
 }
 
+$sql=$conn->query("SELECT * From heroku_079ac9234a32ec1.user");
+
+$row=mysqli_fetch_all($sql,MYSQLI_ASSOC);
+
+echo $sql;
+
+echo  $row
+
+
 ?>
