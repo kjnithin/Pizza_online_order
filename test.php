@@ -1,7 +1,7 @@
 <?php
 $dsn = "pgsql:"
     . "host=ec2-54-225-79-232.compute-1.amazonaws.com;"
-    . "dbname=d4cqvb648s8rk;"
+    . "dbname=d4cqvb648s8rkv;"
     . "user=jfluvyxgboikwn;"
     . "port=5432;"
     . "sslmode=require;"
