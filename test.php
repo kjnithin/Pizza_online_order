@@ -7,17 +7,7 @@ $password = $url["b1fb2043"];
 $db = substr($url["heroku_079ac9234a32ec1"], 1);
 
 $conn = new mysqli($server, $username, $password, $db);
-try{
-  if($conn){
-    echo "connected";
-  }
-  else{
-    echo "something is wrong";
-  }
-}
-catch(Exception $e){
-  echo $e->getMessage();
-}
+
 
 $sql=$conn->query("SELECT * From heroku_079ac9234a32ec1.user");
 
