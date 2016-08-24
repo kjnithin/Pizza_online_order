@@ -2,7 +2,8 @@
   "require":{
     "ext-PDO": "*",
       "ext-mysql":"*",
-    "alrik11es/cowsayphp": "^1.0"
+    "alrik11es/cowsayphp": "^1.0",
+    "php": "^5.6.0"
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"
