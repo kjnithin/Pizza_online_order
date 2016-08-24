@@ -11,7 +11,7 @@ $sql=$conn->query("SELECT * From heroku_079ac9234a32ec1.user");
 
 $row=mysqli_fetch_all($sql,MYSQLI_ASSOC);
 
-print_r($row);
+echo $row;
 // print_r($row[0]['userRole']);
 // print_r($row[0]['password']);
 
@@ -37,6 +37,6 @@ print_r($row);
 // }
 // session_destroy();
 //
- echo json_encode($row);
+ // echo json_encode($row);
 
 ?>
