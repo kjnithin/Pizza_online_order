@@ -6,7 +6,21 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitd637b7d3a610931d7b1575ec3958fd7a
 {
+    public static $files = array (
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Component\\Routing\\' => 26,
+            'Symfony\\Component\\HttpKernel\\' => 29,
+            'Symfony\\Component\\HttpFoundation\\' => 33,
+            'Symfony\\Component\\EventDispatcher\\' => 34,
+            'Symfony\\Component\\Debug\\' => 24,
+            'Silex\\' => 6,
+        ),
         'C' => 
         array (
             'Cowsayphp\\' => 10,
@@ -14,9 +28,59 @@ class ComposerStaticInitd637b7d3a610931d7b1575ec3958fd7a
     );
 
     public static $prefixDirsPsr4 = array (
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Component\\Routing\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/routing',
+        ),
+        'Symfony\\Component\\HttpKernel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/http-kernel',
+        ),
+        'Symfony\\Component\\HttpFoundation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/http-foundation',
+        ),
+        'Symfony\\Component\\EventDispatcher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
+        ),
+        'Symfony\\Component\\Debug\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/debug',
+        ),
+        'Silex\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/silex/silex/src/Silex',
+        ),
         'Cowsayphp\\' => 
         array (
             0 => __DIR__ . '/..' . '/alrik11es/cowsayphp/src',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Psr\\Log\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/psr/log',
+            ),
+            'Pimple' => 
+            array (
+                0 => __DIR__ . '/..' . '/pimple/pimple/lib',
+            ),
+        ),
+        'H' => 
+        array (
+            'Herrera\\Pdo' => 
+            array (
+                0 => __DIR__ . '/..' . '/herrera-io/pdo-log/src/lib',
+                1 => __DIR__ . '/..' . '/herrera-io/silex-pdo/src/lib',
+            ),
         ),
     );
 
@@ -25,6 +89,7 @@ class ComposerStaticInitd637b7d3a610931d7b1575ec3958fd7a
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitd637b7d3a610931d7b1575ec3958fd7a::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitd637b7d3a610931d7b1575ec3958fd7a::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitd637b7d3a610931d7b1575ec3958fd7a::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
