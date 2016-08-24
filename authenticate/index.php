@@ -9,7 +9,6 @@ $username = $url["bca03c24119a3e"];
 $password = $url["b1fb2043"];
 $db = substr($url["heroku_079ac9234a32ec1"], 1);
 
-
 $conn = new mysqli($server, $username, $password, $db);
 
 $_GET['loginUser'] ? $loginUser = $_id['loginUser'] : $loginUser = $_POST['loginUser'];
@@ -20,7 +19,7 @@ $sql=$conn->query("SELECT * From heroku_079ac9234a32ec1.user where='".$loginUser
 
 $row=mysqli_fetch_all($sql,MYSQLI_ASSOC);
 
-print_r($row);
+print_r($sql);
 
 // print_r($row[0]['userRole']);
 // print_r($row[0]['password']);
