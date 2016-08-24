@@ -6,12 +6,15 @@ $username = $url["bca03c24119a3e"];
 $password = $url["b1fb2043"];
 $db = substr($url["heroku_079ac9234a32ec1"], 1);
 
+
+$conn = new mysqli($server, $username, $password, $db);
+?>
+
+
 // $server='localhost' ;
 // $username='root';
 // $password="";
 // $db='pizza';
-
-$conn = new mysqli($server, $username, $password, $db);
 
 // if($conn->connect_errno)
 //      {
@@ -44,7 +47,3 @@ $conn = new mysqli($server, $username, $password, $db);
 //  echo $e->getMessage();
 // }
 //
-
-
-
-?>
