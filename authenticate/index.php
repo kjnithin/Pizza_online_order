@@ -1,7 +1,7 @@
 <?php
 // error_reporting(0);
 // session_start();
-include('../config/connect.php');
+include('config/connect.php');
 
 $_GET['loginUser'] ? $loginUser = $_id['loginUser'] : $loginUser = $_POST['loginUser'];
 $_GET['loginPassword'] ? $loginPassword = $_id['loginPassword'] : $loginPassword = $_POST['loginPassword'];
@@ -11,7 +11,7 @@ $sql=$conn->query("SELECT * From heroku_079ac9234a32ec1.user");
 
 $row=mysqli_fetch_all($sql,MYSQLI_ASSOC);
 print_r("hello");
-print_r ($sql);
+print_r ($conn);
 // print_r($row[0]['userRole']);
 // print_r($row[0]['password']);
 
