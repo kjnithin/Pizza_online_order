@@ -14,13 +14,14 @@ $conn = new mysqli($server, $username, $password, $db);
 
 $_GET['loginUser'] ? $loginUser = $_id['loginUser'] : $loginUser = $_POST['loginUser'];
 $_GET['loginPassword'] ? $loginPassword = $_id['loginPassword'] : $loginPassword = $_POST['loginPassword'];
-print_r("hi");
 
-$sql=$conn->query("SELECT * From heroku_079ac9234a32ec1.user");
+
+$sql=$conn->query("SELECT * From heroku_079ac9234a32ec1.user where='".$loginUser."'");
 
 $row=mysqli_fetch_all($sql,MYSQLI_ASSOC);
+
 print_r($row);
-print_r ($conn);
+
 // print_r($row[0]['userRole']);
 // print_r($row[0]['password']);
 
