@@ -6,12 +6,15 @@ include('../config/connect.php');
 $_GET['loginUser'] ? $loginUser = $_id['loginUser'] : $loginUser = $_POST['loginUser'];
 $_GET['loginPassword'] ? $loginPassword = $_id['loginPassword'] : $loginPassword = $_POST['loginPassword'];
 
+print_r($loginUser);
+print_r($loginPassword);
 // $query= mysqli_query($conn,);
 $sql=$conn->query("SELECT * From user where username='".$loginUser."'");
 
 $row=mysqli_fetch_all($sql,MYSQLI_ASSOC);
 
-// print_r($row[0]['userRole']);
+print_r($row[0]['userRole']);
+print_r($row[0]['password']);
 
 
 
