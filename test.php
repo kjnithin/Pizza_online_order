@@ -1,21 +1,22 @@
 <?php
-$dsn = "pgsql:"
-    . "host=ec2-54-225-79-232.compute-1.amazonaws.com;"
-    . "dbname=d4cqvb648s8rkv;"
-    . "user=jfluvyxgboikwn;"
-    . "port=5432;"
-    . "sslmode=require;"
-    . "password=F4WeyC19SW6W8Kau2fHGl0KuSO";
+$url = parse_url(getenv("mysql://bca03c24119a3e:b1fb2043@us-cdbr-iron-east-04.cleardb.net/heroku_079ac9234a32ec1?reconnect=true"));
 
-    try
-    {
-    	$db = new PDO($dsn);
-      echo "connected";
-    }
-    catch(PDOException $pe)
-    {
-    	die('Connection error, because: ' .$pe->getMessage());
-    };
+$server = $url["us-cdbr-iron-east-04.cleardb.net"];
+$username = $url["bca03c24119a3e"];
+$password = $url["b1fb2043"];
+$db = substr($url["heroku_079ac9234a32ec1"], 1);
+
+try{
+  if($conn = new PDO($server, $username, $password, $db)){
+    echo "connected";
+  }
+  else{
+    echo "something is wrong";
+  }
+}
+catch(Exception $e){
+  echo $e->getMessage();
+}
 
 
 
