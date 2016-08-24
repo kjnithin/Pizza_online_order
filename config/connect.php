@@ -11,17 +11,13 @@ $server='localhost' ;
 $username='root';
 $password="";
 $db='pizza';
-try{
-  if($conn = new mysqli($server, $username, $password, $db)){
-    echo "connected";
-  }
-  else{
-    throw new Exception("Unable to connect");
-  }
-}
-catch(Exception $e){
-  echo $e->getMessage();
-}
+
+$conn = new mysqli($server, $username, $password, $db);
+if($conn->connect_errno)
+     {
+         die("ERROR : -> ".$MySQLiconn->connect_error);
+     }
+
 
 
 

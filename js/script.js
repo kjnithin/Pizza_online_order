@@ -102,7 +102,7 @@ var postLogin = function() {
             'loginPassword': loginPassword
         }),
         success: function(data) {
-          console.log(data);
+          // console.log(data);
             data = JSON.parse(data);
             loadView({
                 "template": data.template
@@ -236,9 +236,9 @@ function provinceDropDown() {
         type: "POST",
         url: "rest/provinceForRegForm.php",
         success: function(data) {
-          console.log(data);
+          // console.log(data);
             $.each(JSON.parse(data), function(k, v) {
-              console.log(v.name);
+              // console.log(v.name);
                 $("#regProvince").append(
                     $('<option value="' + v.name + '">' + v.name + '</option>')
                 );
@@ -691,14 +691,14 @@ function getUserName() {
 function deleteCurrentUser(){
   $("#deleteuser").on('click',function(){
     var name=$('#userNameTxt').text();
-    console.log(name);
+    // console.log(name);
     $.ajax({
       type:'POST',
       url:'rest/deleteUserdetails.php',
       data:{'name':name},
       success:function(data,status){
         if(status=="success"){
-          console.log("deleted");
+          // console.log("deleted");
             $("#userNameList").empty();
             showUserName();
             getUserName();
