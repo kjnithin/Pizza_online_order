@@ -7,7 +7,7 @@ $password = $url["b1fb2043"];
 $db = substr($url["heroku_079ac9234a32ec1"], 1);
 
 try{
-  if($conn = new PDO($server, $username, $password, $db)){
+  if($conn = new mysqli($server, $username, $password, $db)){
     echo "connected";
   }
   else{
@@ -17,8 +17,5 @@ try{
 catch(Exception $e){
   echo $e->getMessage();
 }
-
-
-
 
 ?>
