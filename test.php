@@ -1,7 +1,7 @@
 <?php
 $dsn = "pgsql:"
     . "host=ec2-54-225-79-232.compute-1.amazonaws.com;"
-    . "dbname=d4cqvb648s8rkv;"
+    . "dbname=d4cqvb648s8rk;"
     . "user=jfluvyxgboikwn;"
     . "port=5432;"
     . "sslmode=require;"
@@ -10,6 +10,7 @@ $dsn = "pgsql:"
     try
     {
     	$db = new PDO($dsn);
+      echo "connected";
     }
     catch(PDOException $pe)
     {
