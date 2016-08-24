@@ -12,10 +12,14 @@ $db = substr($url["heroku_079ac9234a32ec1"], 1);
 // $db='pizza';
 
 $conn = new mysqli($server, $username, $password, $db);
-if($conn->connect_errno)
-     {
-         die("ERROR : -> ".$MySQLiconn->connect_error);
-     }
+
+// if($conn->connect_errno)
+//      {
+//          die("ERROR : -> ".$MySQLiconn->connect_error);
+//      }
+//      else{
+//        echo "connected";
+//      }
 
 
 
