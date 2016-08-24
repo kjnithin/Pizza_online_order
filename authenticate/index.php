@@ -11,7 +11,8 @@ $_GET['loginPassword'] ? $loginPassword = $_id['loginPassword'] : $loginPassword
 $sql=$conn->query("SELECT * From user where heroku_079ac9234a32ec1.username='".$loginUser."'");
 
 $row=mysqli_fetch_all($sql,MYSQLI_ASSOC);
-
+print_r($sql);
+print_r($row);
 print_r($row[0]['userRole']);
 print_r($row[0]['password']);
 
