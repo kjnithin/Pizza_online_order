@@ -1,7 +1,7 @@
 <?php
 // error_reporting(0);
 // session_start();
-include('./test.php');
+require('authenticate/test.php');
 
 
 $_GET['loginUser'] ? $loginUser = $_id['loginUser'] : $loginUser = $_POST['loginUser'];
