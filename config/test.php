@@ -12,8 +12,9 @@ $conn = new mysqli($server, $username, $password, $db);
 echo "connected";
 
 $query="SELECT * From heroku_079ac9234a32ec1.user";
+echo $query;
 $sql=$conn->query($query);
-
+echo $conn;
 $row=mysqli_fetch_all($sql,MYSQLI_ASSOC);
 
 echo $row;
