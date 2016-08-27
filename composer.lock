@@ -9,23 +9,23 @@
     "packages": [
         {
             "name": "alrik11es/cowsayphp",
-            "version": "1.0.1",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alrik11es/cowsayphp.git",
-                "reference": "8fad8b7bdcf3df2ca9bc46e30fb2c9e6f96248fc"
+                "reference": "080dc10c8f5420fef35163569293601f17124eeb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alrik11es/cowsayphp/zipball/8fad8b7bdcf3df2ca9bc46e30fb2c9e6f96248fc",
-                "reference": "8fad8b7bdcf3df2ca9bc46e30fb2c9e6f96248fc",
+                "url": "https://api.github.com/repos/alrik11es/cowsayphp/zipball/080dc10c8f5420fef35163569293601f17124eeb",
+                "reference": "080dc10c8f5420fef35163569293601f17124eeb",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.6.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*",
+                "phpunit/phpunit": "5.*",
                 "scrutinizer/ocular": "~1.1"
             },
             "bin": [
@@ -59,7 +59,7 @@
             "keywords": [
                 "cowsay"
             ],
-            "time": "2015-11-30 08:24:36"
+            "time": "2016-08-25 07:53:44"
         },
         {
             "name": "herrera-io/pdo-log",
@@ -721,16 +721,16 @@
     "packages-dev": [
         {
             "name": "heroku/heroku-buildpack-php",
-            "version": "v109",
+            "version": "v110",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heroku/heroku-buildpack-php.git",
-                "reference": "cd2d13992b72d049aa270d4b745aae6329e0c037"
+                "reference": "b5c4a0b77a725c4ab9dc1736e5a8217824790093"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/cd2d13992b72d049aa270d4b745aae6329e0c037",
-                "reference": "cd2d13992b72d049aa270d4b745aae6329e0c037",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/b5c4a0b77a725c4ab9dc1736e5a8217824790093",
+                "reference": "b5c4a0b77a725c4ab9dc1736e5a8217824790093",
                 "shasum": ""
             },
             "bin": [
@@ -761,7 +761,7 @@
                 "nginx",
                 "php"
             ],
-            "time": "2016-07-21 11:26:05"
+            "time": "2016-08-26 14:02:29"
         }
     ],
     "aliases": [],
