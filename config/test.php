@@ -6,26 +6,17 @@ $username = $url["bca03c24119a3e"];
 $password = $url["b1fb2043"];
 $db = substr($url["heroku_079ac9234a32ec1"], 1);
 
-// try{
-//   if($conn = new mysqli($server, $username, $password, $db)){
-//     echo "connected";
-//   }
-//   else{
-//     echo "something is wrong";
-//   }
-// }
-// catch(Exception $e){
-//   echo $e->getMessage();
-// }
+
 
 $conn = new mysqli($server, $username, $password, $db);
+echo "connected";
 
-$sql=$conn->query("SELECT * From heroku_079ac9234a32ec1.user");
-
-$row=mysqli_fetch_all($sql,MYSQLI_ASSOC);
-
-echo $row;
-echo $sql;
-echo $conn;
+// $sql=$conn->query("SELECT * From heroku_079ac9234a32ec1.user");
+//
+// $row=mysqli_fetch_all($sql,MYSQLI_ASSOC);
+//
+// echo $row;
+// echo $sql;
+// echo $conn;
 
 ?>
