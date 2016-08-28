@@ -11,14 +11,14 @@ $db = substr($url["heroku_d45e15ad9c68982"], 1);
 $conn = new mysqli($server, $username, $password, $db);
 echo "connected";
 
-// $query="SELECT * From heroku_079ac9234a32ec1.user";
-// echo $query;
-// $sql=$conn->query($query);
-// echo $conn;
-// $row=mysqli_fetch_all($sql,MYSQLI_ASSOC);
-//
-// echo $row;
-// echo $sql;
-// echo $conn;
+$query="SELECT * From heroku_d45e15ad9c68982.usertable";
+echo $query;
+$sql=$conn->query($query);
+print_r ($conn);
+$row=mysqli_fetch_all($sql,MYSQLI_ASSOC);
+
+echo $row;
+echo $sql;
+
 
 ?>
