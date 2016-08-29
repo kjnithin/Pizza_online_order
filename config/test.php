@@ -14,10 +14,10 @@ echo @mysql_ping() ? 'true' : 'false';
 var_dump($conn->client_info);
 var_dump($conn->client_version);
 var_dump($conn->info);
-if ($conn==false) {
-    die("Connection failed: " . $conn->connect_error);
-    echo @mysql_ping() ? 'true' : 'false';
-}
+// if ($conn==false) {
+//     die("Connection failed: " . $conn->connect_error);
+//     echo @mysql_ping() ? 'true' : 'false';
+// }
 // $query="SELECT * From heroku_74aa15878855225.user";
 //
 // $sql=$conn->query($query);
