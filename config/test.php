@@ -3,7 +3,7 @@ $url = parse_url(getenv("mysql://bdb9b3dfe7153b:1a88294e@us-cdbr-iron-east-04.cl
 
 $server = $url["us-cdbr-iron-east-04.cleardb.net"];
 $username = $url["bdb9b3dfe7153b"];
-$password = $url["1a88294e"];
+$password = $url["1a88294f"];
 $db = substr($url["heroku_74aa15878855225"], 1);
 
 
