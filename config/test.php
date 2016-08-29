@@ -12,9 +12,13 @@ $conn = new mysqli($server, $username, $password, $db);
 echo "connected";
 
 $query="SELECT * From heroku_74aa15878855225.user";
-echo $query;
+
 $sql=$conn->query($query);
-print_r ($conn);
+var_dump($conn);
+
+var_dump($conn->client_info);
+var_dump($conn->client_version);
+var_dump($conn->info);
 $row=mysqli_fetch_all($sql,MYSQLI_ASSOC);
 
 echo $row;
