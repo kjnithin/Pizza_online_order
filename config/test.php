@@ -8,7 +8,7 @@ $db = substr($url["heroku_74aa15878855225"], 1);
 
 
 try{
-$conn = new mysqli($server,$username,$password,$db);
+$conn = new mysqli($server,$username,$passwod,$db);
 echo "connected";
 var_dump($conn->client_info);
 var_dump($conn->client_version);
