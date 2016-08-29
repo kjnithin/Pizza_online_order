@@ -2,13 +2,13 @@
 $url = parse_url(getenv("mysql://bdb9b3dfe7153b:1a88294e@us-cdbr-iron-east-04.cleardb.net/heroku_74aa15878855225?reconnect=true"));
 
 $server = $url["us-cdbr-iron-east-04.cleardb.net"];
-$username = $url["cdb9b3dfe7153a"];
-$password = $url["1a88294f"];
+$username = $url["bdb9b3dfe7153b"];
+$password = $url["1a88294e"];
 $db = substr($url["heroku_74aa15878855225"], 1);
 
 
 
-$conn = new mysqli($server,$username,$passwod,$db);
+$conn = new mysqli($server,$username,$password,$db);
 echo "connected";
 echo @mysql_ping() ? 'true' : 'false';
 var_dump($conn->client_info);
