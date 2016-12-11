@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 include('../config/connect.php');
-
+$pdo = Database::connect();
 
 $_GET['regname'] ? $regname = $_id['regname'] : $regname = $_POST['regname'];
 $_GET['regusername'] ? $regusername = $_id['regusername'] : $regusername = $_POST['regusername'];
@@ -16,11 +16,11 @@ $_GET['regtel'] ? $regtel = $_id['regtel'] : $regtel = $_POST['regtel'];
 
 //This is to hash the password for security
 $hash=password_hash($regpassword,PASSWORD_DEFAULT);
-$query=$conn->prepare("INSERT INTO user(name,username,email,password,apt,street,city,province,postal,phone,userRole)
+$query=$pdo->prepare("INSERT INTO user(name,username,email,password,apt,street,city,province,postal,phone,userRole)
               VALUES(?,?,?,?,?,?,?,?,?,?,?)");
 $query->execute(array($regname,$regusername,$regemail,$hash,$regapt,$regstreet,$regcity,$regprovince,$regpostal,$regtel,'user'));
-$row=$query->fetch();
+$row=$query->fetch(PDO::FETCH_ASSOC);
 
 echo json_encode($row);
-
+Database::disconnect();
 ?>

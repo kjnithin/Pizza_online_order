@@ -1,45 +1,35 @@
 <?php
-// error_reporting(0);
-// session_start();
-require('config/test.php');
+error_reporting(0);
+session_start();
+include('../config/connect.php');
+$pdo = Database::connect();
 
-print_r($conn);
 $_GET['loginUser'] ? $loginUser = $_id['loginUser'] : $loginUser = $_POST['loginUser'];
 $_GET['loginPassword'] ? $loginPassword = $_id['loginPassword'] : $loginPassword = $_POST['loginPassword'];
 
+$query= $pdo->prepare("SELECT * From user where username=?");
+$query->execute(array($loginUser));
+$row=$query->fetch(PDO::FETCH_ASSOC);
 
-$sql=$conn->query("SELECT * From heroku_079ac9234a32ec1.user where='".$loginUser."'");
+//This is to verify the password that is hashed in the registration and the login password, If both matches it do the required operation
+if(password_verify($loginPassword,$row['password'])){
+switch($row['userRole']){
+   case "admin":
+     $row['template'] = 'admin.php';
+     break;
+   case "user":
+     $row['template'] = 'user.php';
+     break;
+    default:
+     $row['template'] = 'unauthorisedUser.php';
+     break;
+   }
+}
+else{
+  $row['template'] = 'unauthorisedUser.php';
+}
+session_destroy();
 
-$row=mysqli_fetch_all($sql,MYSQLI_ASSOC);
-
-print_r($sql);
-print_r($row);
-print_r("hi");
-// print_r($row[0]['userRole']);
-// print_r($row[0]['password']);
-
-
-
-//This is to verify the password that is hashed in the registration and the login password,
-// If both matches it do the required operation
-// if(password_verify($loginPassword,$row[0]['password'])){
-// switch($row[0]['userRole']){
-//    case "admin":
-//      $row['template'] = 'admin.php';
-//      break;
-//    case "user":
-//      $row['template'] = 'user.php';
-//      break;
-//     default:
-//      $row['template'] = 'unauthorisedUser.php';
-//      break;
-//    }
-// }
-// else{
-//   $row['template'] = 'unauthorisedUser.php';
-// }
-// session_destroy();
-//
- // echo json_encode($row);
-
+echo json_encode($row);
+Database::disconnect();
 ?>

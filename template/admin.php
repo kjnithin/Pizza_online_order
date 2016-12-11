@@ -31,61 +31,11 @@
           </div>
           <div role='tabpanel' id='history' class='tab-pane'>
           </div>
-<!-- <<<<<<< HEAD -->
-
-          <!-- This is the tab for user details-->
-          <div role='tabpanel' id='user' class='tab-pane'>
-            <div class="row">
-               <div class="col-md-3">
-                 <div class="list-group" id="userNameList" data-reload="true">
-                 </div>
-               </div>
-               <div class="col-md-7 well form-horizontal">
-                 <p class="tab-header">Personal Details   <a id="deleteuser" class="text-danger tab-header pull-right"><i class="fa fa-trash fa-lg "  aria-hidden="true"></i></a></p>
-
-                   <div class="form-group">
-                   <label class="col-md-4 labelPersonalDetails ">Name:</label>
-                   <div class="col-md-8" class="showPersonalDetails">
-                     <font id="userNameTxt" class="showPersonalDetailsValue"></font>
-                   </div>
-                   </div>
-                   <div class="form-group">
-                   <label class="col-md-4 labelPersonalDetails">User Name:</label>
-                   <div class="col-md-8" class="showPersonalDetails">
-                     <font id="userUsernameTxt" class="showPersonalDetailsValue"></font>
-                   </div>
-                 </div>
-                 <div class="form-group">
-                 <label class="col-md-4 labelPersonalDetails">Email:</label>
-                 <div class="col-md-8" class="showPersonalDetails">
-                   <font id="userEmailTxt" class="showPersonalDetailsValue"></font>
-                 </div>
-               </div>
-               <div class="form-group">
-               <label class="col-md-4 labelPersonalDetails">Address:</label>
-               <div class="col-md-8" class="showPersonalDetails">
-                 <font id="userAptTxt" class="showPersonalDetailsValue"></font> <font id="userStreetTxt" class="showPersonalDetailsValue"></font><br>
-                 <font id="userCityTxt" class="showPersonalDetailsValue"></font>, <font id="userProvinceTxt" class="showPersonalDetailsValue"></font><br>
-                 <font id="userPostalTxt" class="showPersonalDetailsValue"></font>
-               </div>
-             </div>
-             <div class="form-group">
-             <label class="col-md-4 labelPersonalDetails">Phone:</label>
-             <div class="col-md-8" class="showPersonalDetails">
-               <font id="userPhoneTxt" class="showPersonalDetailsValue"></font>
-             </div>
-           </div>
-          </div>
-        </div>
-      </div>
-
-<!-- ======= -->
           <!-- This is hte tab for user details-->
           <div role='tabpanel' id='user' class='tab-pane'>
             hello
           </div>
           <!--End of user details-->
-<!-- >>>>>>> 371ae103b24de32e7eb977c7a5d30ad56d90157f -->
           <!--This is the tab for admin details-->
           <div role='tabpanel' id='admin' class='tab-pane'>
            <div class="row">

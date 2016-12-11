@@ -102,7 +102,6 @@ var postLogin = function() {
             'loginPassword': loginPassword
         }),
         success: function(data) {
-          // console.log(data);
             data = JSON.parse(data);
             loadView({
                 "template": data.template
@@ -142,8 +141,6 @@ function loadView(obj) {
                 provinceDropDown();
                 deleteAdminCredentials();
                 getAdminCredentials();
-                showUserName();
-                deleteCurrentUser();
             } else if (obj.template == "unauthorisedUser.php") {
                 $("#btnLogin").show();
                 loginBtn();
@@ -236,9 +233,7 @@ function provinceDropDown() {
         type: "POST",
         url: "rest/provinceForRegForm.php",
         success: function(data) {
-          // console.log(data);
             $.each(JSON.parse(data), function(k, v) {
-              // console.log(v.name);
                 $("#regProvince").append(
                     $('<option value="' + v.name + '">' + v.name + '</option>')
                 );
@@ -600,11 +595,7 @@ function getAdminCredentials(){
   });
 }
 
-
-// This is to post the edited admin details
-
-// This is to post the edited admin details
-
+// This is to post the edited admin details 
 var editadmin= function(){
   var editname = document.getElementById('editAdminName').value;
   var editusername = document.getElementById('editAdminUsername').value;
@@ -642,72 +633,4 @@ var editadmin= function(){
   });
 }
 
-// <<<<<<< HEAD
-// Get the user personal name
-function showUserName(){
-  $.ajax({
-    type:'POST',
-    url:'rest/getUSerusername.php',
-    success:function(data){
-      $.each(JSON.parse(data), function(k, v) {
-          $("#userNameList").append(
-              $('<a class="list-group-item" id="nameList" active>' + v.name + '</a>')
-          );
-      });
-      getUserName();
-    }
-  });
-}
-
-// Get the user personal details based on the selection
-function getUserName() {
-    $("#userNameList a").click(function() {
-        var name = $(this).text();
-        $.ajax({
-            type: "POST",
-            url: "rest/getAdminName.php",
-            data: ({
-                'name': name
-            }),
-
-            success: function(data) {
-                $.each(JSON.parse(data), function(k, v) {
-                    $("#userNameTxt").html(v.name);
-                    $("#userUsernameTxt").html(v.username);
-                    $("#userEmailTxt").html(v.email);
-                    $("#userAptTxt").html(v.apt);
-                    $("#userStreetTxt").html(v.street);
-                    $("#userCityTxt").html(v.city);
-                    $("#userProvinceTxt").html(v.province);
-                    $("#userPostalTxt").html(v.postal);
-                    $("#userPhoneTxt").html(v.phone);
-                });
-            }
-        });
-    });
-}
-
-// Delete the selected user
-function deleteCurrentUser(){
-  $("#deleteuser").on('click',function(){
-    var name=$('#userNameTxt').text();
-    // console.log(name);
-    $.ajax({
-      type:'POST',
-      url:'rest/deleteUserdetails.php',
-      data:{'name':name},
-      success:function(data,status){
-        if(status=="success"){
-          // console.log("deleted");
-            $("#userNameList").empty();
-            showUserName();
-            getUserName();
-        }
-      }
-    });
-  });
-}
-
-// =======
-// >>>>>>> 371ae103b24de32e7eb977c7a5d30ad56d90157f
 // // **************End of Admin Page****************
