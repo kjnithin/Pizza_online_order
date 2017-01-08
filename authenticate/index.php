@@ -6,7 +6,6 @@ $pdo = Database::connect();
 
 $_GET['loginUser'] ? $loginUser = $_id['loginUser'] : $loginUser = $_POST['loginUser'];
 $_GET['loginPassword'] ? $loginPassword = $_id['loginPassword'] : $loginPassword = $_POST['loginPassword'];
-
 $query= $pdo->prepare("SELECT * From user where username=?");
 $query->execute(array($loginUser));
 $row=$query->fetch(PDO::FETCH_ASSOC);
@@ -29,7 +28,6 @@ else{
   $row['template'] = 'unauthorisedUser.php';
 }
 session_destroy();
-
 echo json_encode($row);
 Database::disconnect();
 ?>

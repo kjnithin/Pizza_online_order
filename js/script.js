@@ -112,14 +112,14 @@ var postLogin = function() {
 
 // This is to load the page based on the authentication (user or admin)
 function loadView(obj) {
-    if (obj.location == undefined)
+    if (obj.location === undefined)
         obj.location = 'mainView';
     $.ajax({
         type: "POST",
         url: "template/" + obj.template,
         success: function(data) {
             $("#" + obj.location).html(data);
-            if (obj.template == "user.php") {
+            if (obj.template === "user.php") {
                 $("#btnLogin").hide();
                 $("#btnLogout").show();
                 $("#displayName").show();
@@ -129,19 +129,19 @@ function loadView(obj) {
                 showEditModal();
                 showDeleteModal();
                 provinceDropDown();
-            } else if (obj.template == "admin.php") {
+            } else if (obj.template === "admin.php") {
                 $("#btnLogin").hide();
                 $("#btnLogout").show();
                 $("#displayName").show();
                 logoutBtn();
                 username();
-                showAdminName();
+//                showAdminName();
                 showAdminDetails();
                 addNewAdmin();
                 provinceDropDown();
                 deleteAdminCredentials();
                 getAdminCredentials();
-            } else if (obj.template == "unauthorisedUser.php") {
+            } else if (obj.template === "unauthorisedUser.php") {
                 $("#btnLogin").show();
                 loginBtn();
                 unauthorisedLogin();
@@ -203,7 +203,7 @@ var postRegister = function() {
             'regtel': regtel
         }),
         success: function(data, status) {
-            if (status == "success") {
+            if (status === "success") {
                 $.ajax({
                     type: "POST",
                     url: "template/login.php",
@@ -333,7 +333,7 @@ var edituser = function() {
             'edittel': edittel
         }),
         success: function(data, status) {
-            if (status == "success") {
+            if (status === "success") {
                 username();
                 personalDetails();
             }
@@ -361,7 +361,7 @@ function hideDeleteModal() {
             'name': name
         }),
         success: function(data, status) {
-            if (status == "success") {
+            if (status === "success") {
                 $.ajax({
                     type: "POST",
                     url: "template/login.php",
@@ -415,19 +415,21 @@ function showAdminDetails() {
     });
 }
 
-// This is t show the list of admin's name in the admin details tab
+// This is to show the list of admin's name in the admin details tab
 function showAdminName() {
     $.ajax({
         type: "POST",
         url: "rest/getAdminDetails.php",
         data: "",
         success: function(data) {
+          console.log("hi");
             $.each(JSON.parse(data), function(k, v) {
+              // console.log(v.name);
                 $("#adminNameList").append(
                     $('<a class="list-group-item" id="nameList" active>' + v.name + '</a>')
                 );
             });
-            getAdminName();
+            // getAdminName();
         }
     });
 }
@@ -496,9 +498,9 @@ var addAdmin = function() {
             'tel': tel
         }),
         success: function(data, status) {
-            if (status == "success") {
+            if (status === "success") {
                 $("#adminNameList").empty();
-                showAdminName();
+                // showAdminName();
             }
             $("#addAdminModal").modal('hide');
         }
@@ -524,7 +526,7 @@ function deleteAdminModal() {
                 'name': name
             }),
             success: function(data, status) {
-                if (status == 'success') {
+                if (status === 'success') {
                     $.ajax({
                         type: "POST",
                         url: "template/login.php",
@@ -556,9 +558,9 @@ function deleteAdminModal() {
                 'name': name
             }),
             success: function(data, status) {
-                if (status == 'success') {
+                if (status === 'success') {
                     $("#adminNameList").empty();
-                    showAdminName();
+//                    showAdminName();
                 }
                 $("#adminDelModal").modal('hide');
             }
@@ -595,7 +597,7 @@ function getAdminCredentials(){
   });
 }
 
-// This is to post the edited admin details 
+// This is to post the edited admin details
 var editadmin= function(){
   var editname = document.getElementById('editAdminName').value;
   var editusername = document.getElementById('editAdminUsername').value;
@@ -621,7 +623,7 @@ var editadmin= function(){
           'edittel': edittel
       }),
       success: function(data, status) {
-          if (status == "success") {
+          if (status === "success") {
             $("#adminNameList").empty();
               showAdminName();
               username();

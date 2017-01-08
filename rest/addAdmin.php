@@ -24,3 +24,4 @@ print_r($row);
 
 echo json_encode($row);
 Database::disconnect();
+?>

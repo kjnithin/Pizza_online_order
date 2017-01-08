@@ -1,4 +1,3 @@
-
 <?php
 class Database
 {
@@ -6,13 +5,10 @@ class Database
     private static $dbHost = 'localhost' ;
     private static $dbUsername = 'root';
     private static $dbUserPassword = '';
-
     private static $cont  = null;
-
     public function __construct() {
         die('Init function is not allowed');
     }
-
     public static function connect()
     {
        // One connection through whole application
@@ -29,7 +25,6 @@ class Database
        }
        return self::$cont;
     }
-
     public static function disconnect()
     {
         self::$cont = null;
